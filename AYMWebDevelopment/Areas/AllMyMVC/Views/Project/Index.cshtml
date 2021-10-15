@@ -1,0 +1,339 @@
+﻿@{ string Vname = "Project";}
+@{
+    ViewBag.Title = @Vname;
+    //Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = null;
+}
+<center>
+    <h2>(@Vname)</h2>
+    <form class="form-horizontal" method="post">
+        <span>Search Word &nbsp;<input type="text" autocomplete="off" id="txtENBTNSearch" name="txtENBTNSearch" class="form-control col-md-3" required /></span>
+        <br />
+        <span>
+            <select id="Searchtype" name="Searchtype" class="form-control col-md-3" required>
+                <option value="1">AutoCode</option>
+                <option value="2">Client AutoCode</option>
+                <option value="3">Employee AutoCode</option>
+                <option value="4">ProjectType Name</option>
+                <option value="5">ProjectStatus Name</option>
+                <option value="6">ProjectPrice Amount</option>
+                <option value="7">DateOfMaking</option>
+                <option value="8">DateOfLastUpdate</option>
+            </select>
+        </span>
+        <br />
+        <div>
+            <span><input placeholder="From Date" type="text" id="StartingDate" name="StartingDate" /> &nbsp;|&nbsp; <input placeholder="To Date" type="text" id="EndingDate" name="EndingDate" /> </span>
+        </div>
+        <br />
+        <br />
+        <span>
+            <input type="submit" class="btn btn-primary " id="LoadRecordsButton" value="Search">
+        </span>
+    </form>
+</center>
+<hr />
+<style>
+    #jtable-create-form, #jtable-edit-form {
+        display: block;
+        width: 700px;
+        overflow: hidden !important;
+        height: 400px;
+        padding: 5px;
+    }
+
+
+    .jtable-input-field-container:nth-of-type(1), .jtable-input-field-container:nth-of-type(2), .jtable-input-field-container:nth-of-type(3),
+    .jtable-input-field-container:nth-of-type(4), .jtable-input-field-container:nth-of-type(5), .jtable-input-field-container:nth-of-type(6),
+    .jtable-input-field-container:nth-of-type(7), .jtable-input-field-container:nth-of-type(8), .jtable-input-field-container:nth-of-type(9),
+    .jtable-input-field-container:nth-of-type(10) /*, .jtable-input-field-container:nth-of-type(11)*/ {
+        margin-bottom: 2px;
+        display: block;
+        float: left;
+        width: 25% !important;
+    }
+
+
+    .jtable-input-field-container:nth-of-type(11), .jtable-input-field-container:nth-of-type(12) {
+        margin-bottom: 2px;
+        display: block;
+        float: left;
+        width: 98% !important;
+    }
+</style>
+@*@section ForJtableImage {
+    <script src="~/Scripts/AYM/jquery-2.2.1.min.js"></script>
+    }*@
+<script type="text/javascript">
+    $(document).ready(function () {
+            $('#LKTBLNAME').jtable({
+                title: '@Vname',
+                paging: true,
+                pageSize: 10,
+                sorting: true,
+                //defaultSorting: 'CourseName ASC',
+                columnResizable: true,
+                columnSelectable: true,
+                saveUserPreferences: true,
+                actions: {
+                    listAction: 'Project/listAll',
+                    //createAction: 'New/CreateOne',
+                    //updateAction: 'New/UpdateOne',
+                    deleteAction: 'Project/DeleteOne',
+                    createAction: function (data) {
+                        var deferred = $.Deferred();
+                        // Capture form submit result from the hidden iframe
+                        $("#postiframe").load(function () {
+                            iframeContents = $("#postiframe").contents().find("body").text();
+                            var result = $.parseJSON(iframeContents);
+                            deferred.resolve(result);
+                        });
+                        var form = $('#jtable-create-form');
+                        form.unbind("submit");
+                        form.attr("action", "Project/CreateOne");
+                        form.attr("method", "post");
+                        form.attr("enctype", "multipart/form-data");
+                        form.attr("encoding", "multipart/form-data");
+                        form.attr("target", "postiframe");
+                        form.submit();
+                        return deferred;
+                    },
+                    updateAction: function (data) {
+                        var deferred = $.Deferred();
+                        // Capture form submit result from the hidden iframe
+                        $("#postiframe").load(function () {
+                            iframeContents = $("#postiframe").contents().find("body").text();
+                            var result = $.parseJSON(iframeContents);
+                            deferred.resolve(result);
+                        });
+                        var form = $('#jtable-edit-form');
+                        form.unbind("submit");
+                        form.attr("action", "Project/UpdateOne");
+                        form.attr("method", "post");
+                        form.attr("enctype", "multipart/form-data");
+                        form.attr("encoding", "multipart/form-data");
+                        form.attr("target", "postiframe");
+                        form.submit();
+                        return deferred;
+                    },
+                    },
+                fields: {
+                    ProjectID: {
+                        key: true,
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                    AutoCode: {
+                        title: 'AutoCode',
+                    },
+                    DateOfMaking: {
+                        title: 'DateOfMaking',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                    },
+                    DateOfLastUpdate: {
+                        title: 'DateOfUpdate',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                    },
+                    EmployeeIDDLastUpdate: {
+                        title: 'EmpLastUpdate',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Employee_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Employee_ADDEDIT';
+                            }
+                        },
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ProjectStatusIDD: {
+                        title: 'Project Status',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_ProjectStatus_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_ProjectStatus_ADDEDIT';
+                            }
+                        },
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ProjectTypeIDD: {
+                        title: 'Project Type',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_ProjectType_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_ProjectType_ADDEDIT';
+                            }
+                        },
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ProjectPriceIDD: {
+                        title: 'Project Price',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_ProjectPrice_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_ProjectPrice_ADDEDIT';
+                            }
+                        },
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ClientIDD: {
+                        title: 'Client',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Client_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Client_ADDEDIT';
+                            }
+                        },
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    EmployeeIDDManager: {
+                        title: 'Employee MGR',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Employee_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Employee_ADDEDIT';
+                            }
+                        },
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ProjectDetailsFileURL: {
+                        title: 'Details PDF',
+                        input: function (data) {
+                            return '<input type ="file" id="ProjectDetailsFileURL" name="ProjectDetailsFileURL" class="input-type-file" accept="application/pdf"/><iframe name="postiframe" id="postiframe" style="display: none" />';
+                        },
+                        display: function (data) {
+                            return ' <iframe src="../Images/Project/' + data.record.ProjectDetailsFileURL + '" width="100" height="50"> </iframe>'
+                        }
+                    },
+                    ProjectRequirements: {
+                        title: 'Requirements',
+                        type: 'textarea',
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ProjectNotes: {
+                        title: 'Notes',
+                        type: 'textarea',
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    IsDeleted: {
+                        title: 'Delete',
+                        type: 'checkbox',
+                        defaultValue: 'false',
+                        values: { 'false': 'No', 'true': 'Yes' },
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                },
+                formCreated: function (event, data) {
+                    if (data.formType == "create") {
+                        $(".ui-dialog-title").text("Add New");
+                    }
+                    else {
+                        $(".ui-dialog-title").text("Modify");
+                    }
+
+
+                    $("#Edit-ProjectStatusIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "An Project Status",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                     });
+
+                    $("#Edit-ProjectTypeIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A Project Type",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-ProjectPriceIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A Project Price",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-ClientIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A Client",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-EmployeeIDDManager").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "An Employee MGR",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    //$("#Edit-AutoCode, #Edit-DateOfMaking, #Edit-EmployeeIDDLastUpdate, #Edit-DateOfLastUpdate").attr('readonly', true);
+                    $("#Edit-AutoCode, #Edit-DateOfMaking, #Edit-EmployeeIDDLastUpdate, #Edit-DateOfLastUpdate").prop('disabled', true);
+
+
+                    //$("#Edit-Amount, #Edit-ExpenseRevenueNotes").attr('autocomplete', 'off');
+
+                    //$(".ui-dialog-buttonset, .ui-dialog-titlebar-close").css('background-color', 'lightgray');
+
+                },
+                formSubmitting: function (event, data) {
+                    return data.form.validationEngine('validate');
+                },
+                formClosed: function (event, data) {
+                    data.form.validationEngine('hide');
+                    data.form.validationEngine('detach');
+                    $(".ui-dialog-title").text("Remove");
+                },
+
+            });
+            $('#LKTBLNAME').jtable('load');
+
+            $('#LoadRecordsButton').click(function (e) {
+
+                e.preventDefault();
+                $('#LKTBLNAME').jtable('load', {
+
+                    txtENBTNSearch: $('#txtENBTNSearch').val(),
+                    Searchtype: $('#Searchtype').val(),
+                    StartingDate: $('#StartingDate').val(),
+                    EndingDate: $('#EndingDate').val()
+                });
+            });
+        });
+</script>
+
+<div id="LKTBLNAME" style="width:auto; text-align:center"></div>

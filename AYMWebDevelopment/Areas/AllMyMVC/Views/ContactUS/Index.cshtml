@@ -1,0 +1,221 @@
+﻿@{ string Vname = "Contact US";}
+@{
+    ViewBag.Title = @Vname;
+    //Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = null;
+}
+<center>
+    <h2>(@Vname)</h2>
+    <form class="form-horizontal" method="post">
+        <span>Search Word &nbsp;<input type="text" autocomplete="off" id="txtENBTNSearch" name="txtENBTNSearch" class="form-control col-md-3" required /></span>
+        <br />
+        <span>
+            <select id="Searchtype" name="Searchtype" class="form-control col-md-3" required>
+                <option value="1">Email</option>
+                <option value="2">Name</option>
+                <option value="3">Message</option>
+                <option value="4">IP Address</option>
+                <option value="5">DateOfMaking</option>
+                <option value="5">IsSeen</option>
+            </select>
+        </span>
+        <br />
+        <div>
+            <span><input placeholder="From Date" type="text" id="StartingDate" name="StartingDate" /> &nbsp;|&nbsp; <input placeholder="To Date" type="text" id="EndingDate" name="EndingDate" /> </span>
+        </div>
+        <br />
+        <span>
+            <input type="submit" class="btn btn-primary " id="LoadRecordsButton" value="Search">
+        </span>
+    </form>
+</center>
+<hr />
+<style>
+    #jtable-create-form, #jtable-edit-form {
+        display: block;
+        width: 350px;
+        overflow: hidden !important;
+        height: 350px;
+    }
+
+
+    .jtable-input-field-container:nth-of-type(1), .jtable-input-field-container:nth-of-type(2),
+    .jtable-input-field-container:nth-of-type(3), .jtable-input-field-container:nth-of-type(4),
+    .jtable-input-field-container:nth-of-type(5), .jtable-input-field-container:nth-of-type(6)
+     {
+        margin-bottom: 2px;
+        display: block;
+        float: left;
+        width: 49% !important;
+    }
+
+    .jtable-input-field-container:nth-of-type(7), .jtable-input-field-container:nth-of-type(8) {
+        margin-bottom: 2px;
+        display: block;
+        float: left;
+        width: 98% !important;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+            $('#LKTBLNAME').jtable({
+                title: '@Vname',
+                paging: true,
+                pageSize: 10,
+                sorting: true,
+                //defaultSorting: 'CourseName ASC',
+                columnResizable: true,
+                columnSelectable: true,
+                saveUserPreferences: true,
+                actions: {
+                    listAction: 'ContactUS/listAll',
+                    //createAction: 'ContactUS/CreateOne',
+                    updateAction: 'ContactUS/UpdateOne',
+                    deleteAction: 'ContactUS/DeleteOne',
+                },
+                fields: {
+                    ContactID: {
+                        key: true,
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                    ContactName: {
+                        title: 'Name',
+                        inputClass: 'validate[required]',
+                    },
+                    ContactEmail: {
+                        title: 'Email',
+                        inputClass: 'validate[required,custom[email]]',
+                    },
+                    ContactIPAddress: {
+                        title: 'IPAddress',
+                        inputClass: 'validate[required]',
+                    },
+                    DateOfMaking: {
+                        title: 'DateOfMaking',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                        inputClass: 'validate[required,custom[date]]',
+                    },
+                    DateOfLastUpdate: {
+                        title: 'DateOfUpdate',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                    },
+                    EmployeeIDDLastUpdate: {
+                        title: 'EmpLastUpdate',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Employee_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Employee_ADDEDIT';
+                            }
+                        },
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ContactMessage: {
+                        title: 'Text',
+                        type: 'textarea',
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    IsSeen: {
+                        title:'New?',
+                        type: 'checkbox',
+                        defaultValue: 'false',
+                        values: { 'false': 'Yes', 'true': 'No' },
+                    },
+                    IsDeleted: {
+                        title: 'Delete',
+                        type: 'checkbox',
+                        defaultValue: 'false',
+                        values: { 'false': 'No', 'true': 'Yes' },
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                },
+                formCreated: function (event, data) {
+                    //data.form.attr('enctype', 'multipart/form-data');
+                    if (data.formType == "create") {
+                        $(".ui-dialog-title").text("Add New");
+                    }
+                    else {
+                        $(".ui-dialog-title").text("Modify");
+                    }
+
+
+                    //$("#Edit-DateOfMaking").datepicker("option", "maxDate", "0");
+                    $("#Edit-DateOfMaking, #StartingDate, #EndingDate").datepicker("option", "changeYear", true);
+                    $("#Edit-DateOfMaking, #StartingDate, #EndingDate").datepicker("option", "changeMonth", true);
+                    //$("#Edit-DateOfMaking").datepicker("option", "showButtonPanel", true);
+
+
+
+                    //$("#Edit-ContactName, #Edit-ContactEmail, #Edit-ContactIPAddress").attr('autocomplete', 'off');
+                    $("#Edit-DateOfMaking, #Edit-ContactName, #Edit-ContactEmail, #Edit-ContactIPAddress, #Edit-EmployeeIDDLastUpdate, #Edit-DateOfLastUpdate, #Edit-ContactMessage").prop('disabled', true);
+                    //$("#Edit-DateOfMaking, #Edit-ContactName, #Edit-ContactEmail, #Edit-ContactIPAddress, #Edit-EmployeeIDDLastUpdate, #Edit-DateOfLastUpdate").prop('disabled', true);
+                    //$(".ui-dialog-buttonset, .ui-dialog-titlebar-close").css('background-color', 'lightgray');
+
+
+                },
+                formSubmitting: function (event, data) {
+                    return data.form.validationEngine('validate');
+                },
+                formClosed: function (event, data) {
+                    data.form.validationEngine('hide');
+                    data.form.validationEngine('detach');
+                    $(".ui-dialog-title").text("Remove");
+                },
+
+            });
+            $('#LKTBLNAME').jtable('load');
+
+            $('#LoadRecordsButton').click(function (e) {
+
+                e.preventDefault();
+                $('#LKTBLNAME').jtable('load', {
+
+                    txtENBTNSearch: $('#txtENBTNSearch').val(),
+                    Searchtype: $('#Searchtype').val(),
+                    StartingDate: $('#StartingDate').val(),
+                    EndingDate: $('#EndingDate').val()
+                });
+            });
+        });
+</script>
+<script>
+    $(document).ready(function () {
+        //$("#StartingDate, #EndingDate").datepicker({
+        //    dateFormat: 'yy-mm-dd',
+        //    changeYear: true,
+        //    changeMonth: true,
+        //});
+        $("#StartingDate , #EndingDate").removeClass('hasDatepicker');
+        $("#StartingDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeYear: true,
+            changeMonth: true,
+
+            onSelect: function (selected) {
+                $("#EndingDate").datepicker("option", "minDate", selected)
+            }
+        });
+        $("#EndingDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeYear: true,
+            changeMonth: true,
+
+            onSelect: function (selected) {
+                $("#StartingDate").datepicker("option", "maxDate", selected)
+            }
+        });
+        $("#StartingDate, #EndingDate").attr('autocomplete', 'off');
+    });
+</script>
+<div id="LKTBLNAME" style="width:auto"></div>

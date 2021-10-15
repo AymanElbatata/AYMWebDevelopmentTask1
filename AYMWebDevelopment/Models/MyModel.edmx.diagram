@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6fdb8eb3690c43148a2c6c1a8669a46b" Name="Diagram1">
+        <EntityTypeShape EntityType="AYMCOMPModel.BranchTBL" Width="1.5" PointX="5.25" PointY="22.375" />
+        <EntityTypeShape EntityType="AYMCOMPModel.CallingAPISAuthTBL" Width="1.5" PointX="9.75" PointY="11.625" />
+        <EntityTypeShape EntityType="AYMCOMPModel.CareerTBL" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="AYMCOMPModel.CityTBL" Width="1.5" PointX="5.25" PointY="18" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ClientTBL" Width="1.5" PointX="10.5" PointY="15.375" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ContactUsReplyTBL" Width="1.5" PointX="12.75" PointY="13" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ContactUSTBL" Width="1.5" PointX="10.5" PointY="0.75" />
+        <EntityTypeShape EntityType="AYMCOMPModel.CountryTBL" Width="1.5" PointX="0.75" PointY="16.375" />
+        <EntityTypeShape EntityType="AYMCOMPModel.EducationTBL" Width="1.5" PointX="8.25" PointY="8.875" />
+        <EntityTypeShape EntityType="AYMCOMPModel.EmployeeLoginTBL" Width="1.5" PointX="9.75" PointY="27.75" />
+        <EntityTypeShape EntityType="AYMCOMPModel.EmployeeTBL" Width="1.5" PointX="7.5" PointY="14" />
+        <EntityTypeShape EntityType="AYMCOMPModel.EmployeeTypeTBL" Width="1.5" PointX="5.25" PointY="14.75" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ExpenseRevenueTBL" Width="1.5" PointX="15" PointY="16.625" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ExpenseRevenueTypeTBL" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="AYMCOMPModel.GenderTBL" Width="1.5" PointX="8.25" PointY="34" />
+        <EntityTypeShape EntityType="AYMCOMPModel.GovernorateTBL" Width="1.5" PointX="3" PointY="19.75" />
+        <EntityTypeShape EntityType="AYMCOMPModel.InternalChatTBL" Width="1.5" PointX="9.75" PointY="31.125" />
+        <EntityTypeShape EntityType="AYMCOMPModel.MaritalStatusTBL" Width="1.5" PointX="8.25" PointY="5.625" />
+        <EntityTypeShape EntityType="AYMCOMPModel.NationalityTBL" Width="1.5" PointX="8.25" PointY="2.375" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ProfessionTBL" Width="1.5" PointX="8.25" PointY="36.75" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ProjectPriceTBL" Width="1.5" PointX="10.5" PointY="5.375" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ProjectStatusTBL" Width="1.5" PointX="10.5" PointY="34" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ProjectTBL" Width="1.5" PointX="12.75" PointY="16.75" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ProjectTypeTBL" Width="1.5" PointX="10.5" PointY="8.625" />
+        <EntityTypeShape EntityType="AYMCOMPModel.RecoverPasswordTBL" Width="1.5" PointX="9.75" PointY="24.875" />
+        <EntityTypeShape EntityType="AYMCOMPModel.ResourceTBL" Width="1.5" PointX="12.75" PointY="8.75" />
+        <EntityTypeShape EntityType="AYMCOMPModel.SalaryTBL" Width="1.5" PointX="5.25" PointY="25.125" />
+        <EntityTypeShape EntityType="AYMCOMPModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="1" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_BranchesTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_CallingAPISAuthTBL_EmployeesTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_CityTBL_CountryTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_CityTBL_GovernorateTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ClientsTBL_CityTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_CityTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ClientsTBL_CountryTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ClientsTBL_GenderTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ClientsTBL_GovernorateTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ClientsTBL_MaritalStatusTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ClientsTBL_NationalityTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ClientsTBL_ProfessionTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ClientTBL_EducationTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ClientsTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ProjectsTBL_ClientsTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ContactUsReplyTBL_ContactUSTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ContactUsReplyTBL_EmployeesTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_CountryTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_GovernorateTBL_CountryTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_EducationTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeeLoginTBL_EmployeesTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_EmployeeTypeTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_GenderTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_GovernorateTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_MaritalStatusTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_NationalityTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_ProfessionTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_EmployeesTBL_SalaryTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ExprenseRevenueTBL_EmployeesTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ExprenseRevenueTBL_EmployeesTBL1" />
+        <AssociationConnector Association="AYMCOMPModel.FK_InternalChatTBL_EmployeesTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ProjectsTBL_EmployeesTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ProjectTBL_EmployeeTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_RecoverPasswordTBL_EmployeeTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ExprenseRevenueTypeTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ProjectsTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ResourceTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ResourceTBL1" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ProjectsTBL_ProjectPriceTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ProjectsTBL_ProjectStatusTBL" />
+        <AssociationConnector Association="AYMCOMPModel.FK_ProjectsTBL_ProjectTypeTBL" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

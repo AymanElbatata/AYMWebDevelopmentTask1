@@ -1,0 +1,160 @@
+﻿@{ string Vname = "Employee Login";}
+@{
+    ViewBag.Title = @Vname;
+    //Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = null;
+}
+<center>
+    <h2>(@Vname)</h2>
+    <form class="form-horizontal" method="post">
+        <span>Search Word &nbsp;<input type="text" autocomplete="off" id="txtENBTNSearch" name="txtENBTNSearch" class="form-control col-md-3" required /></span>
+        <br />
+        <span>
+            <select id="Searchtype" name="Searchtype" class="form-control col-md-3" required>
+                <option value="1">Employee AutoCode</option>
+                <option value="2">Login Time</option>
+            </select>
+        </span>
+        <br />
+        <div>
+            <span><input placeholder="From Date" type="text" id="StartingDate" name="StartingDate" /> &nbsp;|&nbsp; <input placeholder="To Date" type="text" id="EndingDate" name="EndingDate" /> </span>
+        </div>
+        <br />
+        <br />
+        <span>
+            <input type="submit" class="btn btn-primary " id="LoadRecordsButton" value="Search">
+        </span>
+    </form>
+</center>
+<hr />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+            $('#LKTBLNAME').jtable({
+                title: '@Vname',
+                paging: true,
+                pageSize: 10,
+                sorting: true,
+                //defaultSorting: 'CourseName ASC',
+                columnResizable: true,
+                columnSelectable: true,
+                saveUserPreferences: true,
+                actions: {
+                    listAction: 'EmployeeLogin/listAll',
+                    //createAction: 'WriterLogin/CreateOne',
+                    //updateAction: 'WriterLogin/UpdateOne',
+                    deleteAction: 'EmployeeLogin/DeleteOne',
+                    },
+                fields: {
+                    EmployeeLoginID: {
+                        key: true,
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                    EmployeeIDD: {
+                        title: 'Employee',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Employee_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Employee_ADDEDIT';
+                            }
+                        },
+                        inputClass: 'validate[required]',
+                    },
+                    LoginIPAddress: {
+                        title: 'IPAddress',
+                    },
+                    SessionUnique: {
+                        list: false
+                    },
+                    LoginTime: {
+                        title: 'LoginTime',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                    },
+                    LogoutTime: {
+                        title: 'LogOutTime',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                    },
+                    IsDeleted: {
+                        title: 'Delete',
+                        type: 'checkbox',
+                        defaultValue: 'false',
+                        values: { 'false': 'No', 'true': 'Yes' },
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                },
+                formCreated: function (event, data) {
+                    if (data.formType == "create") {
+                        $(".ui-dialog-title").text("Add New");
+                    }
+                    else {
+                        $(".ui-dialog-title").text("Modify");
+                    }
+
+                    //$(".ui-dialog-buttonset, .ui-dialog-titlebar-close").css('background-color', 'lightgray');
+
+                },
+                formSubmitting: function (event, data) {
+                    return data.form.validationEngine('validate');
+                },
+                formClosed: function (event, data) {
+                    data.form.validationEngine('hide');
+                    data.form.validationEngine('detach');
+                    $(".ui-dialog-title").text("Remove");
+                },
+
+            });
+            $('#LKTBLNAME').jtable('load');
+
+            $('#LoadRecordsButton').click(function (e) {
+
+                e.preventDefault();
+                $('#LKTBLNAME').jtable('load', {
+
+                    txtENBTNSearch: $('#txtENBTNSearch').val(),
+                    Searchtype: $('#Searchtype').val(),
+                    StartingDate: $('#StartingDate').val(),
+                    EndingDate: $('#EndingDate').val()
+                });
+            });
+        });
+</script>
+<script>
+
+    $(document).ready(function () {
+        //$("#StartingDate, #EndingDate").datepicker({
+        //    dateFormat: 'yy-mm-dd',
+        //    changeYear: true,
+        //    changeMonth: true,
+        //});
+        $("#StartingDate , #EndingDate").removeClass('hasDatepicker');
+        $("#StartingDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeYear: true,
+            changeMonth: true,
+
+            onSelect: function (selected) {
+                $("#EndingDate").datepicker("option", "minDate", selected)
+            }
+        });
+        $("#EndingDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeYear: true,
+            changeMonth: true,
+
+            onSelect: function (selected) {
+                $("#StartingDate").datepicker("option", "maxDate", selected)
+            }
+        });
+        $("#StartingDate, #EndingDate").attr('autocomplete', 'off');
+    });
+</script>
+<div id="LKTBLNAME" style="width:auto; text-align:center"></div>

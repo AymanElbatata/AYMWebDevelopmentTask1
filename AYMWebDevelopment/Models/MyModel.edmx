@@ -1,0 +1,2531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AYMCOMPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BranchTBL">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Name="BranchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="255" />
+          <Property Name="BranchNotes" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CallingAPISAuthTBL">
+          <Key>
+            <PropertyRef Name="CallingAPISAuthID" />
+          </Key>
+          <Property Name="CallingAPISAuthID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CallingAPISAuthPinCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="CallingAPISAuthPassword" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeeIDD" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CareerTBL">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+          </Key>
+          <Property Name="CandidateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AutoCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="CandidateName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CandidateEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="CandidatePosition" Type="nvarchar" MaxLength="200" />
+          <Property Name="CandidateFileURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="CandidateIPAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateOfMaking" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CityTBL">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="255" />
+          <Property Name="CountryIDD" Type="int" />
+          <Property Name="GovernorateIDD" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientTBL">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AutoCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientFullName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientEmail1" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientEmail2" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientFaceBookURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientWhatsAppNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientPhone1" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientPhone2" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="PassportOrIDNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="OfficialDocumentURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="MaritalStatusIDD" Type="int" />
+          <Property Name="GenderIDD" Type="int" />
+          <Property Name="ProfessionIDD" Type="int" />
+          <Property Name="EducationIDD" Type="int" />
+          <Property Name="NationalityIDD" Type="int" />
+          <Property Name="CountryIDD" Type="int" />
+          <Property Name="GovernorateIDD" Type="int" />
+          <Property Name="CityIDD" Type="int" />
+          <Property Name="ClientNotes" Type="nvarchar(max)" />
+          <Property Name="DateOfMaking" Type="datetime" />
+          <Property Name="DateOfLastUpdate" Type="datetime" />
+          <Property Name="EmployeeIDDLastUpdate" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactUsReplyTBL">
+          <Key>
+            <PropertyRef Name="ContactUsReplyID" />
+          </Key>
+          <Property Name="ContactUsReplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactUSMessage" Type="nvarchar(max)" />
+          <Property Name="ContactIDD" Type="int" />
+          <Property Name="EmployeeIDD" Type="int" />
+          <Property Name="DateOfMaking" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactUSTBL">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactEmail" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactIPAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactMessage" Type="nvarchar(max)" />
+          <Property Name="DateOfMaking" Type="datetime" />
+          <Property Name="DateOfLastUpdate" Type="datetime" />
+          <Property Name="EmployeeIDDLastUpdate" Type="int" />
+          <Property Name="IsSeen" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountryTBL">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EducationTBL">
+          <Key>
+            <PropertyRef Name="EducationID" />
+          </Key>
+          <Property Name="EducationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EducationName" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeLoginTBL">
+          <Key>
+            <PropertyRef Name="EmployeeLoginID" />
+          </Key>
+          <Property Name="EmployeeLoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeIDD" Type="int" />
+          <Property Name="LoginIPAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="LoginTime" Type="datetime" />
+          <Property Name="LogoutTime" Type="datetime" />
+          <Property Name="SessionUnique" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeTBL">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AutoCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeeFullName" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeeEmail" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeePassword" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeePhone1" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeePhone2" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeeAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="DateOfHiring" Type="date" />
+          <Property Name="DateOfeaving" Type="date" />
+          <Property Name="PassportOrIDNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="PassportORIDIMGURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="ResumeFIleURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="DocumentFileURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeeTypeIDD" Type="int" />
+          <Property Name="MaritalStatusIDD" Type="int" />
+          <Property Name="GenderIDD" Type="int" />
+          <Property Name="EducationIDD" Type="int" />
+          <Property Name="ProfessionIDD" Type="int" />
+          <Property Name="SalaryIDD" Type="int" />
+          <Property Name="NationalityIDD" Type="int" />
+          <Property Name="CountryIDD" Type="int" />
+          <Property Name="GovernorateIDD" Type="int" />
+          <Property Name="CityIDD" Type="int" />
+          <Property Name="BranchIDD" Type="int" />
+          <Property Name="DateOfMaking" Type="datetime" />
+          <Property Name="DateOfLastUpdate" Type="datetime" />
+          <Property Name="IsStopped" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeTypeTBL">
+          <Key>
+            <PropertyRef Name="EmployeeTypeID" />
+          </Key>
+          <Property Name="EmployeeTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeTypeName" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeeTypeNumber" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExpenseRevenueTBL">
+          <Key>
+            <PropertyRef Name="ExpenseRevenueID" />
+          </Key>
+          <Property Name="ExpenseRevenueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AutoCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExpenseRevenueTypeIDD" Type="int" />
+          <Property Name="ResourceFromIDD" Type="int" />
+          <Property Name="ResourceToIDD" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="ClientIDD" Type="int" />
+          <Property Name="EmployeeIDD" Type="int" />
+          <Property Name="ProjectIDD" Type="int" />
+          <Property Name="Expense0_Revenue1" Type="bit" Nullable="false" />
+          <Property Name="InvoiceFileURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExpenseRevenueNotes" Type="nvarchar(max)" />
+          <Property Name="DateOfMaking" Type="datetime" />
+          <Property Name="DateOfLastUpdate" Type="datetime" />
+          <Property Name="EmployeeIDDLastUpdate" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExpenseRevenueTypeTBL">
+          <Key>
+            <PropertyRef Name="ExpenseRevenueTypeID" />
+          </Key>
+          <Property Name="ExpenseRevenueTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpenseRevenueName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExpenseRevenueNotes" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GenderTBL">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenderName" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GovernorateTBL">
+          <Key>
+            <PropertyRef Name="GovernorateID" />
+          </Key>
+          <Property Name="GovernorateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GovernorateName" Type="nvarchar" MaxLength="255" />
+          <Property Name="CountryIDD" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InternalChatTBL">
+          <Key>
+            <PropertyRef Name="InternalChatID" />
+          </Key>
+          <Property Name="InternalChatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeIDD" Type="int" />
+          <Property Name="TextMessage" Type="nvarchar(max)" />
+          <Property Name="DateOfMaking" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaritalStatusTBL">
+          <Key>
+            <PropertyRef Name="MaritalStatusID" />
+          </Key>
+          <Property Name="MaritalStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaritalStatusName" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NationalityTBL">
+          <Key>
+            <PropertyRef Name="NationalityID" />
+          </Key>
+          <Property Name="NationalityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NationalityName" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfessionTBL">
+          <Key>
+            <PropertyRef Name="ProfessionID" />
+          </Key>
+          <Property Name="ProfessionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfessionName" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectPriceTBL">
+          <Key>
+            <PropertyRef Name="ProjectPriceID" />
+          </Key>
+          <Property Name="ProjectPriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectPriceAmount" Type="int" />
+          <Property Name="ProjectPriceNotes" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectStatusTBL">
+          <Key>
+            <PropertyRef Name="ProjectStatusID" />
+          </Key>
+          <Property Name="ProjectStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectStatusName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProjectStatusNumber" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectTBL">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AutoCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProjectStatusIDD" Type="int" />
+          <Property Name="ProjectRequirements" Type="nvarchar(max)" />
+          <Property Name="ProjectPriceIDD" Type="int" />
+          <Property Name="ProjectTypeIDD" Type="int" />
+          <Property Name="ProjectNotes" Type="nvarchar(max)" />
+          <Property Name="EmployeeIDDManager" Type="int" />
+          <Property Name="ClientIDD" Type="int" />
+          <Property Name="ProjectDetailsFileURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateOfMaking" Type="datetime" />
+          <Property Name="DateOfLastUpdate" Type="datetime" />
+          <Property Name="EmployeeIDDLastUpdate" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectTypeTBL">
+          <Key>
+            <PropertyRef Name="ProjectTypeID" />
+          </Key>
+          <Property Name="ProjectTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectTypeName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProjectTypeNotes" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecoverPasswordTBL">
+          <Key>
+            <PropertyRef Name="RecoverPasswordID" />
+          </Key>
+          <Property Name="RecoverPasswordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecoverPasswordAutoCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmployeeIDD" Type="int" />
+          <Property Name="DateOfMaking" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResourceTBL">
+          <Key>
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="ResourceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResourceName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ResourceNotes" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalaryTBL">
+          <Key>
+            <PropertyRef Name="SalaryID" />
+          </Key>
+          <Property Name="SalaryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalaryAmount" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_CallingAPISAuthTBL_EmployeesTBL">
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="0..1" />
+          <End Role="CallingAPISAuthTBL" Type="Self.CallingAPISAuthTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="CallingAPISAuthTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityTBL_CountryTBL">
+          <End Role="CountryTBL" Type="Self.CountryTBL" Multiplicity="0..1" />
+          <End Role="CityTBL" Type="Self.CityTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTBL">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="CityTBL">
+              <PropertyRef Name="CountryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityTBL_GovernorateTBL">
+          <End Role="GovernorateTBL" Type="Self.GovernorateTBL" Multiplicity="0..1" />
+          <End Role="CityTBL" Type="Self.CityTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GovernorateTBL">
+              <PropertyRef Name="GovernorateID" />
+            </Principal>
+            <Dependent Role="CityTBL">
+              <PropertyRef Name="GovernorateIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_CityTBL">
+          <End Role="CityTBL" Type="Self.CityTBL" Multiplicity="0..1" />
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityTBL">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="CityIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_CountryTBL">
+          <End Role="CountryTBL" Type="Self.CountryTBL" Multiplicity="0..1" />
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTBL">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="CountryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_GenderTBL">
+          <End Role="GenderTBL" Type="Self.GenderTBL" Multiplicity="0..1" />
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderTBL">
+              <PropertyRef Name="GenderID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="GenderIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_GovernorateTBL">
+          <End Role="GovernorateTBL" Type="Self.GovernorateTBL" Multiplicity="0..1" />
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GovernorateTBL">
+              <PropertyRef Name="GovernorateID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="GovernorateIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_MaritalStatusTBL">
+          <End Role="MaritalStatusTBL" Type="Self.MaritalStatusTBL" Multiplicity="0..1" />
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaritalStatusTBL">
+              <PropertyRef Name="MaritalStatusID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="MaritalStatusIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_NationalityTBL">
+          <End Role="NationalityTBL" Type="Self.NationalityTBL" Multiplicity="0..1" />
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NationalityTBL">
+              <PropertyRef Name="NationalityID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="NationalityIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_ProfessionTBL">
+          <End Role="ProfessionTBL" Type="Self.ProfessionTBL" Multiplicity="0..1" />
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfessionTBL">
+              <PropertyRef Name="ProfessionID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="ProfessionIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientTBL_EducationTBL">
+          <End Role="EducationTBL" Type="Self.EducationTBL" Multiplicity="0..1" />
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationTBL">
+              <PropertyRef Name="EducationID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="EducationIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactUsReplyTBL_ContactUSTBL">
+          <End Role="ContactUSTBL" Type="Self.ContactUSTBL" Multiplicity="0..1" />
+          <End Role="ContactUsReplyTBL" Type="Self.ContactUsReplyTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactUSTBL">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="ContactUsReplyTBL">
+              <PropertyRef Name="ContactIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactUsReplyTBL_EmployeesTBL">
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="0..1" />
+          <End Role="ContactUsReplyTBL" Type="Self.ContactUsReplyTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ContactUsReplyTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLoginTBL_EmployeesTBL">
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="0..1" />
+          <End Role="EmployeeLoginTBL" Type="Self.EmployeeLoginTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeLoginTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_BranchesTBL">
+          <End Role="BranchTBL" Type="Self.BranchTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchTBL">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="BranchIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_CityTBL">
+          <End Role="CityTBL" Type="Self.CityTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityTBL">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="CityIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_CountryTBL">
+          <End Role="CountryTBL" Type="Self.CountryTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTBL">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="CountryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_EducationTBL">
+          <End Role="EducationTBL" Type="Self.EducationTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationTBL">
+              <PropertyRef Name="EducationID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="EducationIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_EmployeeTypeTBL">
+          <End Role="EmployeeTypeTBL" Type="Self.EmployeeTypeTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTypeTBL">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeTypeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_GenderTBL">
+          <End Role="GenderTBL" Type="Self.GenderTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderTBL">
+              <PropertyRef Name="GenderID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="GenderIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_GovernorateTBL">
+          <End Role="GovernorateTBL" Type="Self.GovernorateTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GovernorateTBL">
+              <PropertyRef Name="GovernorateID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="GovernorateIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_MaritalStatusTBL">
+          <End Role="MaritalStatusTBL" Type="Self.MaritalStatusTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaritalStatusTBL">
+              <PropertyRef Name="MaritalStatusID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="MaritalStatusIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_NationalityTBL">
+          <End Role="NationalityTBL" Type="Self.NationalityTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NationalityTBL">
+              <PropertyRef Name="NationalityID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="NationalityIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_ProfessionTBL">
+          <End Role="ProfessionTBL" Type="Self.ProfessionTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfessionTBL">
+              <PropertyRef Name="ProfessionID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="ProfessionIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_SalaryTBL">
+          <End Role="SalaryTBL" Type="Self.SalaryTBL" Multiplicity="0..1" />
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryTBL">
+              <PropertyRef Name="SalaryID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="SalaryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ClientsTBL">
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="0..1" />
+          <End Role="ExpenseRevenueTBL" Type="Self.ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientTBL">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ClientIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_EmployeesTBL">
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="0..1" />
+          <End Role="ExpenseRevenueTBL" Type="Self.ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_EmployeesTBL1">
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="0..1" />
+          <End Role="ExpenseRevenueTBL" Type="Self.ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="EmployeeIDDLastUpdate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ExprenseRevenueTypeTBL">
+          <End Role="ExpenseRevenueTypeTBL" Type="Self.ExpenseRevenueTypeTBL" Multiplicity="0..1" />
+          <End Role="ExpenseRevenueTBL" Type="Self.ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpenseRevenueTypeTBL">
+              <PropertyRef Name="ExpenseRevenueTypeID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ExpenseRevenueTypeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ProjectsTBL">
+          <End Role="ProjectTBL" Type="Self.ProjectTBL" Multiplicity="0..1" />
+          <End Role="ExpenseRevenueTBL" Type="Self.ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTBL">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ProjectIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ResourceTBL">
+          <End Role="ResourceTBL" Type="Self.ResourceTBL" Multiplicity="0..1" />
+          <End Role="ExpenseRevenueTBL" Type="Self.ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResourceTBL">
+              <PropertyRef Name="ResourceID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ResourceFromIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ResourceTBL1">
+          <End Role="ResourceTBL" Type="Self.ResourceTBL" Multiplicity="0..1" />
+          <End Role="ExpenseRevenueTBL" Type="Self.ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResourceTBL">
+              <PropertyRef Name="ResourceID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ResourceToIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GovernorateTBL_CountryTBL">
+          <End Role="CountryTBL" Type="Self.CountryTBL" Multiplicity="0..1" />
+          <End Role="GovernorateTBL" Type="Self.GovernorateTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTBL">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="GovernorateTBL">
+              <PropertyRef Name="CountryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InternalChatTBL_EmployeesTBL">
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="0..1" />
+          <End Role="InternalChatTBL" Type="Self.InternalChatTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="InternalChatTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_ClientsTBL">
+          <End Role="ClientTBL" Type="Self.ClientTBL" Multiplicity="0..1" />
+          <End Role="ProjectTBL" Type="Self.ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientTBL">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="ClientIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_EmployeesTBL">
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="0..1" />
+          <End Role="ProjectTBL" Type="Self.ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="EmployeeIDDManager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_ProjectPriceTBL">
+          <End Role="ProjectPriceTBL" Type="Self.ProjectPriceTBL" Multiplicity="0..1" />
+          <End Role="ProjectTBL" Type="Self.ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectPriceTBL">
+              <PropertyRef Name="ProjectPriceID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="ProjectPriceIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_ProjectStatusTBL">
+          <End Role="ProjectStatusTBL" Type="Self.ProjectStatusTBL" Multiplicity="0..1" />
+          <End Role="ProjectTBL" Type="Self.ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectStatusTBL">
+              <PropertyRef Name="ProjectStatusID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="ProjectStatusIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_ProjectTypeTBL">
+          <End Role="ProjectTypeTBL" Type="Self.ProjectTypeTBL" Multiplicity="0..1" />
+          <End Role="ProjectTBL" Type="Self.ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypeTBL">
+              <PropertyRef Name="ProjectTypeID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="ProjectTypeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectTBL_EmployeeTBL">
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="0..1" />
+          <End Role="ProjectTBL" Type="Self.ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="EmployeeIDDLastUpdate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecoverPasswordTBL_EmployeeTBL">
+          <End Role="EmployeeTBL" Type="Self.EmployeeTBL" Multiplicity="0..1" />
+          <End Role="RecoverPasswordTBL" Type="Self.RecoverPasswordTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="RecoverPasswordTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AYMCOMPModelStoreContainer">
+          <EntitySet Name="BranchTBL" EntityType="Self.BranchTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CallingAPISAuthTBL" EntityType="Self.CallingAPISAuthTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CareerTBL" EntityType="Self.CareerTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CityTBL" EntityType="Self.CityTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientTBL" EntityType="Self.ClientTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactUsReplyTBL" EntityType="Self.ContactUsReplyTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactUSTBL" EntityType="Self.ContactUSTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryTBL" EntityType="Self.CountryTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EducationTBL" EntityType="Self.EducationTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeLoginTBL" EntityType="Self.EmployeeLoginTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeTBL" EntityType="Self.EmployeeTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeTypeTBL" EntityType="Self.EmployeeTypeTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpenseRevenueTBL" EntityType="Self.ExpenseRevenueTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpenseRevenueTypeTBL" EntityType="Self.ExpenseRevenueTypeTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GenderTBL" EntityType="Self.GenderTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GovernorateTBL" EntityType="Self.GovernorateTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternalChatTBL" EntityType="Self.InternalChatTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaritalStatusTBL" EntityType="Self.MaritalStatusTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NationalityTBL" EntityType="Self.NationalityTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfessionTBL" EntityType="Self.ProfessionTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectPriceTBL" EntityType="Self.ProjectPriceTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectStatusTBL" EntityType="Self.ProjectStatusTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectTBL" EntityType="Self.ProjectTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectTypeTBL" EntityType="Self.ProjectTypeTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecoverPasswordTBL" EntityType="Self.RecoverPasswordTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResourceTBL" EntityType="Self.ResourceTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryTBL" EntityType="Self.SalaryTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CallingAPISAuthTBL_EmployeesTBL" Association="Self.FK_CallingAPISAuthTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="CallingAPISAuthTBL" EntitySet="CallingAPISAuthTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityTBL_CountryTBL" Association="Self.FK_CityTBL_CountryTBL">
+            <End Role="CountryTBL" EntitySet="CountryTBL" />
+            <End Role="CityTBL" EntitySet="CityTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityTBL_GovernorateTBL" Association="Self.FK_CityTBL_GovernorateTBL">
+            <End Role="GovernorateTBL" EntitySet="GovernorateTBL" />
+            <End Role="CityTBL" EntitySet="CityTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_CityTBL" Association="Self.FK_ClientsTBL_CityTBL">
+            <End Role="CityTBL" EntitySet="CityTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_CountryTBL" Association="Self.FK_ClientsTBL_CountryTBL">
+            <End Role="CountryTBL" EntitySet="CountryTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_GenderTBL" Association="Self.FK_ClientsTBL_GenderTBL">
+            <End Role="GenderTBL" EntitySet="GenderTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_GovernorateTBL" Association="Self.FK_ClientsTBL_GovernorateTBL">
+            <End Role="GovernorateTBL" EntitySet="GovernorateTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_MaritalStatusTBL" Association="Self.FK_ClientsTBL_MaritalStatusTBL">
+            <End Role="MaritalStatusTBL" EntitySet="MaritalStatusTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_NationalityTBL" Association="Self.FK_ClientsTBL_NationalityTBL">
+            <End Role="NationalityTBL" EntitySet="NationalityTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_ProfessionTBL" Association="Self.FK_ClientsTBL_ProfessionTBL">
+            <End Role="ProfessionTBL" EntitySet="ProfessionTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientTBL_EducationTBL" Association="Self.FK_ClientTBL_EducationTBL">
+            <End Role="EducationTBL" EntitySet="EducationTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactUsReplyTBL_ContactUSTBL" Association="Self.FK_ContactUsReplyTBL_ContactUSTBL">
+            <End Role="ContactUSTBL" EntitySet="ContactUSTBL" />
+            <End Role="ContactUsReplyTBL" EntitySet="ContactUsReplyTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactUsReplyTBL_EmployeesTBL" Association="Self.FK_ContactUsReplyTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ContactUsReplyTBL" EntitySet="ContactUsReplyTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLoginTBL_EmployeesTBL" Association="Self.FK_EmployeeLoginTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="EmployeeLoginTBL" EntitySet="EmployeeLoginTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_BranchesTBL" Association="Self.FK_EmployeesTBL_BranchesTBL">
+            <End Role="BranchTBL" EntitySet="BranchTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_CityTBL" Association="Self.FK_EmployeesTBL_CityTBL">
+            <End Role="CityTBL" EntitySet="CityTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_CountryTBL" Association="Self.FK_EmployeesTBL_CountryTBL">
+            <End Role="CountryTBL" EntitySet="CountryTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_EducationTBL" Association="Self.FK_EmployeesTBL_EducationTBL">
+            <End Role="EducationTBL" EntitySet="EducationTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_EmployeeTypeTBL" Association="Self.FK_EmployeesTBL_EmployeeTypeTBL">
+            <End Role="EmployeeTypeTBL" EntitySet="EmployeeTypeTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_GenderTBL" Association="Self.FK_EmployeesTBL_GenderTBL">
+            <End Role="GenderTBL" EntitySet="GenderTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_GovernorateTBL" Association="Self.FK_EmployeesTBL_GovernorateTBL">
+            <End Role="GovernorateTBL" EntitySet="GovernorateTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_MaritalStatusTBL" Association="Self.FK_EmployeesTBL_MaritalStatusTBL">
+            <End Role="MaritalStatusTBL" EntitySet="MaritalStatusTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_NationalityTBL" Association="Self.FK_EmployeesTBL_NationalityTBL">
+            <End Role="NationalityTBL" EntitySet="NationalityTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_ProfessionTBL" Association="Self.FK_EmployeesTBL_ProfessionTBL">
+            <End Role="ProfessionTBL" EntitySet="ProfessionTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_SalaryTBL" Association="Self.FK_EmployeesTBL_SalaryTBL">
+            <End Role="SalaryTBL" EntitySet="SalaryTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ClientsTBL" Association="Self.FK_ExprenseRevenueTBL_ClientsTBL">
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_EmployeesTBL" Association="Self.FK_ExprenseRevenueTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_EmployeesTBL1" Association="Self.FK_ExprenseRevenueTBL_EmployeesTBL1">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ExprenseRevenueTypeTBL" Association="Self.FK_ExprenseRevenueTBL_ExprenseRevenueTypeTBL">
+            <End Role="ExpenseRevenueTypeTBL" EntitySet="ExpenseRevenueTypeTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ProjectsTBL" Association="Self.FK_ExprenseRevenueTBL_ProjectsTBL">
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ResourceTBL" Association="Self.FK_ExprenseRevenueTBL_ResourceTBL">
+            <End Role="ResourceTBL" EntitySet="ResourceTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ResourceTBL1" Association="Self.FK_ExprenseRevenueTBL_ResourceTBL1">
+            <End Role="ResourceTBL" EntitySet="ResourceTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GovernorateTBL_CountryTBL" Association="Self.FK_GovernorateTBL_CountryTBL">
+            <End Role="CountryTBL" EntitySet="CountryTBL" />
+            <End Role="GovernorateTBL" EntitySet="GovernorateTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InternalChatTBL_EmployeesTBL" Association="Self.FK_InternalChatTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="InternalChatTBL" EntitySet="InternalChatTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_ClientsTBL" Association="Self.FK_ProjectsTBL_ClientsTBL">
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_EmployeesTBL" Association="Self.FK_ProjectsTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_ProjectPriceTBL" Association="Self.FK_ProjectsTBL_ProjectPriceTBL">
+            <End Role="ProjectPriceTBL" EntitySet="ProjectPriceTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_ProjectStatusTBL" Association="Self.FK_ProjectsTBL_ProjectStatusTBL">
+            <End Role="ProjectStatusTBL" EntitySet="ProjectStatusTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_ProjectTypeTBL" Association="Self.FK_ProjectsTBL_ProjectTypeTBL">
+            <End Role="ProjectTypeTBL" EntitySet="ProjectTypeTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectTBL_EmployeeTBL" Association="Self.FK_ProjectTBL_EmployeeTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecoverPasswordTBL_EmployeeTBL" Association="Self.FK_RecoverPasswordTBL_EmployeeTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="RecoverPasswordTBL" EntitySet="RecoverPasswordTBL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AYMCOMPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AYMCOMPDataContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BranchTBL" EntityType="AYMCOMPModel.BranchTBL" />
+          <EntitySet Name="CallingAPISAuthTBL" EntityType="AYMCOMPModel.CallingAPISAuthTBL" />
+          <EntitySet Name="CareerTBL" EntityType="AYMCOMPModel.CareerTBL" />
+          <EntitySet Name="CityTBL" EntityType="AYMCOMPModel.CityTBL" />
+          <EntitySet Name="ClientTBL" EntityType="AYMCOMPModel.ClientTBL" />
+          <EntitySet Name="ContactUsReplyTBL" EntityType="AYMCOMPModel.ContactUsReplyTBL" />
+          <EntitySet Name="ContactUSTBL" EntityType="AYMCOMPModel.ContactUSTBL" />
+          <EntitySet Name="CountryTBL" EntityType="AYMCOMPModel.CountryTBL" />
+          <EntitySet Name="EducationTBL" EntityType="AYMCOMPModel.EducationTBL" />
+          <EntitySet Name="EmployeeLoginTBL" EntityType="AYMCOMPModel.EmployeeLoginTBL" />
+          <EntitySet Name="EmployeeTBL" EntityType="AYMCOMPModel.EmployeeTBL" />
+          <EntitySet Name="EmployeeTypeTBL" EntityType="AYMCOMPModel.EmployeeTypeTBL" />
+          <EntitySet Name="ExpenseRevenueTBL" EntityType="AYMCOMPModel.ExpenseRevenueTBL" />
+          <EntitySet Name="ExpenseRevenueTypeTBL" EntityType="AYMCOMPModel.ExpenseRevenueTypeTBL" />
+          <EntitySet Name="GenderTBL" EntityType="AYMCOMPModel.GenderTBL" />
+          <EntitySet Name="GovernorateTBL" EntityType="AYMCOMPModel.GovernorateTBL" />
+          <EntitySet Name="InternalChatTBL" EntityType="AYMCOMPModel.InternalChatTBL" />
+          <EntitySet Name="MaritalStatusTBL" EntityType="AYMCOMPModel.MaritalStatusTBL" />
+          <EntitySet Name="NationalityTBL" EntityType="AYMCOMPModel.NationalityTBL" />
+          <EntitySet Name="ProfessionTBL" EntityType="AYMCOMPModel.ProfessionTBL" />
+          <EntitySet Name="ProjectPriceTBL" EntityType="AYMCOMPModel.ProjectPriceTBL" />
+          <EntitySet Name="ProjectStatusTBL" EntityType="AYMCOMPModel.ProjectStatusTBL" />
+          <EntitySet Name="ProjectTBL" EntityType="AYMCOMPModel.ProjectTBL" />
+          <EntitySet Name="ProjectTypeTBL" EntityType="AYMCOMPModel.ProjectTypeTBL" />
+          <EntitySet Name="RecoverPasswordTBL" EntityType="AYMCOMPModel.RecoverPasswordTBL" />
+          <EntitySet Name="ResourceTBL" EntityType="AYMCOMPModel.ResourceTBL" />
+          <EntitySet Name="SalaryTBL" EntityType="AYMCOMPModel.SalaryTBL" />
+          <EntitySet Name="sysdiagrams" EntityType="AYMCOMPModel.sysdiagrams" />
+          <AssociationSet Name="FK_EmployeesTBL_BranchesTBL" Association="AYMCOMPModel.FK_EmployeesTBL_BranchesTBL">
+            <End Role="BranchTBL" EntitySet="BranchTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CallingAPISAuthTBL_EmployeesTBL" Association="AYMCOMPModel.FK_CallingAPISAuthTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="CallingAPISAuthTBL" EntitySet="CallingAPISAuthTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityTBL_CountryTBL" Association="AYMCOMPModel.FK_CityTBL_CountryTBL">
+            <End Role="CountryTBL" EntitySet="CountryTBL" />
+            <End Role="CityTBL" EntitySet="CityTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityTBL_GovernorateTBL" Association="AYMCOMPModel.FK_CityTBL_GovernorateTBL">
+            <End Role="GovernorateTBL" EntitySet="GovernorateTBL" />
+            <End Role="CityTBL" EntitySet="CityTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_CityTBL" Association="AYMCOMPModel.FK_ClientsTBL_CityTBL">
+            <End Role="CityTBL" EntitySet="CityTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_CityTBL" Association="AYMCOMPModel.FK_EmployeesTBL_CityTBL">
+            <End Role="CityTBL" EntitySet="CityTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_CountryTBL" Association="AYMCOMPModel.FK_ClientsTBL_CountryTBL">
+            <End Role="CountryTBL" EntitySet="CountryTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_GenderTBL" Association="AYMCOMPModel.FK_ClientsTBL_GenderTBL">
+            <End Role="GenderTBL" EntitySet="GenderTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_GovernorateTBL" Association="AYMCOMPModel.FK_ClientsTBL_GovernorateTBL">
+            <End Role="GovernorateTBL" EntitySet="GovernorateTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_MaritalStatusTBL" Association="AYMCOMPModel.FK_ClientsTBL_MaritalStatusTBL">
+            <End Role="MaritalStatusTBL" EntitySet="MaritalStatusTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_NationalityTBL" Association="AYMCOMPModel.FK_ClientsTBL_NationalityTBL">
+            <End Role="NationalityTBL" EntitySet="NationalityTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientsTBL_ProfessionTBL" Association="AYMCOMPModel.FK_ClientsTBL_ProfessionTBL">
+            <End Role="ProfessionTBL" EntitySet="ProfessionTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientTBL_EducationTBL" Association="AYMCOMPModel.FK_ClientTBL_EducationTBL">
+            <End Role="EducationTBL" EntitySet="EducationTBL" />
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ClientsTBL" Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ClientsTBL">
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_ClientsTBL" Association="AYMCOMPModel.FK_ProjectsTBL_ClientsTBL">
+            <End Role="ClientTBL" EntitySet="ClientTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactUsReplyTBL_ContactUSTBL" Association="AYMCOMPModel.FK_ContactUsReplyTBL_ContactUSTBL">
+            <End Role="ContactUSTBL" EntitySet="ContactUSTBL" />
+            <End Role="ContactUsReplyTBL" EntitySet="ContactUsReplyTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactUsReplyTBL_EmployeesTBL" Association="AYMCOMPModel.FK_ContactUsReplyTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ContactUsReplyTBL" EntitySet="ContactUsReplyTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_CountryTBL" Association="AYMCOMPModel.FK_EmployeesTBL_CountryTBL">
+            <End Role="CountryTBL" EntitySet="CountryTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GovernorateTBL_CountryTBL" Association="AYMCOMPModel.FK_GovernorateTBL_CountryTBL">
+            <End Role="CountryTBL" EntitySet="CountryTBL" />
+            <End Role="GovernorateTBL" EntitySet="GovernorateTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_EducationTBL" Association="AYMCOMPModel.FK_EmployeesTBL_EducationTBL">
+            <End Role="EducationTBL" EntitySet="EducationTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLoginTBL_EmployeesTBL" Association="AYMCOMPModel.FK_EmployeeLoginTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="EmployeeLoginTBL" EntitySet="EmployeeLoginTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_EmployeeTypeTBL" Association="AYMCOMPModel.FK_EmployeesTBL_EmployeeTypeTBL">
+            <End Role="EmployeeTypeTBL" EntitySet="EmployeeTypeTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_GenderTBL" Association="AYMCOMPModel.FK_EmployeesTBL_GenderTBL">
+            <End Role="GenderTBL" EntitySet="GenderTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_GovernorateTBL" Association="AYMCOMPModel.FK_EmployeesTBL_GovernorateTBL">
+            <End Role="GovernorateTBL" EntitySet="GovernorateTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_MaritalStatusTBL" Association="AYMCOMPModel.FK_EmployeesTBL_MaritalStatusTBL">
+            <End Role="MaritalStatusTBL" EntitySet="MaritalStatusTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_NationalityTBL" Association="AYMCOMPModel.FK_EmployeesTBL_NationalityTBL">
+            <End Role="NationalityTBL" EntitySet="NationalityTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_ProfessionTBL" Association="AYMCOMPModel.FK_EmployeesTBL_ProfessionTBL">
+            <End Role="ProfessionTBL" EntitySet="ProfessionTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeesTBL_SalaryTBL" Association="AYMCOMPModel.FK_EmployeesTBL_SalaryTBL">
+            <End Role="SalaryTBL" EntitySet="SalaryTBL" />
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_EmployeesTBL" Association="AYMCOMPModel.FK_ExprenseRevenueTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_EmployeesTBL1" Association="AYMCOMPModel.FK_ExprenseRevenueTBL_EmployeesTBL1">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InternalChatTBL_EmployeesTBL" Association="AYMCOMPModel.FK_InternalChatTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="InternalChatTBL" EntitySet="InternalChatTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_EmployeesTBL" Association="AYMCOMPModel.FK_ProjectsTBL_EmployeesTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectTBL_EmployeeTBL" Association="AYMCOMPModel.FK_ProjectTBL_EmployeeTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecoverPasswordTBL_EmployeeTBL" Association="AYMCOMPModel.FK_RecoverPasswordTBL_EmployeeTBL">
+            <End Role="EmployeeTBL" EntitySet="EmployeeTBL" />
+            <End Role="RecoverPasswordTBL" EntitySet="RecoverPasswordTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ExprenseRevenueTypeTBL" Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ExprenseRevenueTypeTBL">
+            <End Role="ExpenseRevenueTypeTBL" EntitySet="ExpenseRevenueTypeTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ProjectsTBL" Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ProjectsTBL">
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ResourceTBL" Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ResourceTBL">
+            <End Role="ResourceTBL" EntitySet="ResourceTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExprenseRevenueTBL_ResourceTBL1" Association="AYMCOMPModel.FK_ExprenseRevenueTBL_ResourceTBL1">
+            <End Role="ResourceTBL" EntitySet="ResourceTBL" />
+            <End Role="ExpenseRevenueTBL" EntitySet="ExpenseRevenueTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_ProjectPriceTBL" Association="AYMCOMPModel.FK_ProjectsTBL_ProjectPriceTBL">
+            <End Role="ProjectPriceTBL" EntitySet="ProjectPriceTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_ProjectStatusTBL" Association="AYMCOMPModel.FK_ProjectsTBL_ProjectStatusTBL">
+            <End Role="ProjectStatusTBL" EntitySet="ProjectStatusTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectsTBL_ProjectTypeTBL" Association="AYMCOMPModel.FK_ProjectsTBL_ProjectTypeTBL">
+            <End Role="ProjectTypeTBL" EntitySet="ProjectTypeTBL" />
+            <End Role="ProjectTBL" EntitySet="ProjectTBL" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BranchTBL">
+          <Key>
+            <PropertyRef Name="BranchID" />
+          </Key>
+          <Property Name="BranchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BranchNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_BranchesTBL" FromRole="BranchTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="CallingAPISAuthTBL">
+          <Key>
+            <PropertyRef Name="CallingAPISAuthID" />
+          </Key>
+          <Property Name="CallingAPISAuthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CallingAPISAuthPinCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CallingAPISAuthPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeIDD" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_CallingAPISAuthTBL_EmployeesTBL" FromRole="CallingAPISAuthTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="CareerTBL">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+          </Key>
+          <Property Name="CandidateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AutoCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CandidateName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CandidateEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CandidatePosition" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CandidateFileURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CandidateIPAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfMaking" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CityTBL">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CountryIDD" Type="Int32" />
+          <Property Name="GovernorateIDD" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CountryTBL" Relationship="AYMCOMPModel.FK_CityTBL_CountryTBL" FromRole="CityTBL" ToRole="CountryTBL" />
+          <NavigationProperty Name="GovernorateTBL" Relationship="AYMCOMPModel.FK_CityTBL_GovernorateTBL" FromRole="CityTBL" ToRole="GovernorateTBL" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_CityTBL" FromRole="CityTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_CityTBL" FromRole="CityTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="ClientTBL">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AutoCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientFullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientEmail1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientEmail2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientFaceBookURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientWhatsAppNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientPhone1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientPhone2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="PassportOrIDNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OfficialDocumentURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MaritalStatusIDD" Type="Int32" />
+          <Property Name="GenderIDD" Type="Int32" />
+          <Property Name="ProfessionIDD" Type="Int32" />
+          <Property Name="EducationIDD" Type="Int32" />
+          <Property Name="NationalityIDD" Type="Int32" />
+          <Property Name="CountryIDD" Type="Int32" />
+          <Property Name="GovernorateIDD" Type="Int32" />
+          <Property Name="CityIDD" Type="Int32" />
+          <Property Name="ClientNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfMaking" Type="DateTime" Precision="3" />
+          <Property Name="DateOfLastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeIDDLastUpdate" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CityTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_CityTBL" FromRole="ClientTBL" ToRole="CityTBL" />
+          <NavigationProperty Name="CountryTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_CountryTBL" FromRole="ClientTBL" ToRole="CountryTBL" />
+          <NavigationProperty Name="GenderTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_GenderTBL" FromRole="ClientTBL" ToRole="GenderTBL" />
+          <NavigationProperty Name="GovernorateTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_GovernorateTBL" FromRole="ClientTBL" ToRole="GovernorateTBL" />
+          <NavigationProperty Name="MaritalStatusTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_MaritalStatusTBL" FromRole="ClientTBL" ToRole="MaritalStatusTBL" />
+          <NavigationProperty Name="NationalityTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_NationalityTBL" FromRole="ClientTBL" ToRole="NationalityTBL" />
+          <NavigationProperty Name="ProfessionTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_ProfessionTBL" FromRole="ClientTBL" ToRole="ProfessionTBL" />
+          <NavigationProperty Name="EducationTBL" Relationship="AYMCOMPModel.FK_ClientTBL_EducationTBL" FromRole="ClientTBL" ToRole="EducationTBL" />
+          <NavigationProperty Name="ExpenseRevenueTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ClientsTBL" FromRole="ClientTBL" ToRole="ExpenseRevenueTBL" />
+          <NavigationProperty Name="ProjectTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_ClientsTBL" FromRole="ClientTBL" ToRole="ProjectTBL" />
+        </EntityType>
+        <EntityType Name="ContactUsReplyTBL">
+          <Key>
+            <PropertyRef Name="ContactUsReplyID" />
+          </Key>
+          <Property Name="ContactUsReplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactUSMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactIDD" Type="Int32" />
+          <Property Name="EmployeeIDD" Type="Int32" />
+          <Property Name="DateOfMaking" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ContactUSTBL" Relationship="AYMCOMPModel.FK_ContactUsReplyTBL_ContactUSTBL" FromRole="ContactUsReplyTBL" ToRole="ContactUSTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_ContactUsReplyTBL_EmployeesTBL" FromRole="ContactUsReplyTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="ContactUSTBL">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactIPAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfMaking" Type="DateTime" Precision="3" />
+          <Property Name="DateOfLastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeIDDLastUpdate" Type="Int32" />
+          <Property Name="IsSeen" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ContactUsReplyTBL" Relationship="AYMCOMPModel.FK_ContactUsReplyTBL_ContactUSTBL" FromRole="ContactUSTBL" ToRole="ContactUsReplyTBL" />
+        </EntityType>
+        <EntityType Name="CountryTBL">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CityTBL" Relationship="AYMCOMPModel.FK_CityTBL_CountryTBL" FromRole="CountryTBL" ToRole="CityTBL" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_CountryTBL" FromRole="CountryTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_CountryTBL" FromRole="CountryTBL" ToRole="EmployeeTBL" />
+          <NavigationProperty Name="GovernorateTBL" Relationship="AYMCOMPModel.FK_GovernorateTBL_CountryTBL" FromRole="CountryTBL" ToRole="GovernorateTBL" />
+        </EntityType>
+        <EntityType Name="EducationTBL">
+          <Key>
+            <PropertyRef Name="EducationID" />
+          </Key>
+          <Property Name="EducationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EducationName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ClientTBL_EducationTBL" FromRole="EducationTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_EducationTBL" FromRole="EducationTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="EmployeeLoginTBL">
+          <Key>
+            <PropertyRef Name="EmployeeLoginID" />
+          </Key>
+          <Property Name="EmployeeLoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeIDD" Type="Int32" />
+          <Property Name="LoginIPAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LoginTime" Type="DateTime" Precision="3" />
+          <Property Name="LogoutTime" Type="DateTime" Precision="3" />
+          <Property Name="SessionUnique" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeeLoginTBL_EmployeesTBL" FromRole="EmployeeLoginTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="EmployeeTBL">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AutoCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeFullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeePassword" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeePhone1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeePhone2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="DateOfHiring" Type="DateTime" Precision="0" />
+          <Property Name="DateOfeaving" Type="DateTime" Precision="0" />
+          <Property Name="PassportOrIDNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PassportORIDIMGURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ResumeFIleURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentFileURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTypeIDD" Type="Int32" />
+          <Property Name="MaritalStatusIDD" Type="Int32" />
+          <Property Name="GenderIDD" Type="Int32" />
+          <Property Name="EducationIDD" Type="Int32" />
+          <Property Name="ProfessionIDD" Type="Int32" />
+          <Property Name="SalaryIDD" Type="Int32" />
+          <Property Name="NationalityIDD" Type="Int32" />
+          <Property Name="CountryIDD" Type="Int32" />
+          <Property Name="GovernorateIDD" Type="Int32" />
+          <Property Name="CityIDD" Type="Int32" />
+          <Property Name="BranchIDD" Type="Int32" />
+          <Property Name="DateOfMaking" Type="DateTime" Precision="3" />
+          <Property Name="DateOfLastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="IsStopped" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BranchTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_BranchesTBL" FromRole="EmployeeTBL" ToRole="BranchTBL" />
+          <NavigationProperty Name="CallingAPISAuthTBL" Relationship="AYMCOMPModel.FK_CallingAPISAuthTBL_EmployeesTBL" FromRole="EmployeeTBL" ToRole="CallingAPISAuthTBL" />
+          <NavigationProperty Name="CityTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_CityTBL" FromRole="EmployeeTBL" ToRole="CityTBL" />
+          <NavigationProperty Name="ContactUsReplyTBL" Relationship="AYMCOMPModel.FK_ContactUsReplyTBL_EmployeesTBL" FromRole="EmployeeTBL" ToRole="ContactUsReplyTBL" />
+          <NavigationProperty Name="CountryTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_CountryTBL" FromRole="EmployeeTBL" ToRole="CountryTBL" />
+          <NavigationProperty Name="EducationTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_EducationTBL" FromRole="EmployeeTBL" ToRole="EducationTBL" />
+          <NavigationProperty Name="EmployeeLoginTBL" Relationship="AYMCOMPModel.FK_EmployeeLoginTBL_EmployeesTBL" FromRole="EmployeeTBL" ToRole="EmployeeLoginTBL" />
+          <NavigationProperty Name="EmployeeTypeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_EmployeeTypeTBL" FromRole="EmployeeTBL" ToRole="EmployeeTypeTBL" />
+          <NavigationProperty Name="GenderTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_GenderTBL" FromRole="EmployeeTBL" ToRole="GenderTBL" />
+          <NavigationProperty Name="GovernorateTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_GovernorateTBL" FromRole="EmployeeTBL" ToRole="GovernorateTBL" />
+          <NavigationProperty Name="MaritalStatusTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_MaritalStatusTBL" FromRole="EmployeeTBL" ToRole="MaritalStatusTBL" />
+          <NavigationProperty Name="NationalityTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_NationalityTBL" FromRole="EmployeeTBL" ToRole="NationalityTBL" />
+          <NavigationProperty Name="ProfessionTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_ProfessionTBL" FromRole="EmployeeTBL" ToRole="ProfessionTBL" />
+          <NavigationProperty Name="SalaryTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_SalaryTBL" FromRole="EmployeeTBL" ToRole="SalaryTBL" />
+          <NavigationProperty Name="ExpenseRevenueTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_EmployeesTBL" FromRole="EmployeeTBL" ToRole="ExpenseRevenueTBL" />
+          <NavigationProperty Name="ExpenseRevenueTBL1" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_EmployeesTBL1" FromRole="EmployeeTBL" ToRole="ExpenseRevenueTBL" />
+          <NavigationProperty Name="InternalChatTBL" Relationship="AYMCOMPModel.FK_InternalChatTBL_EmployeesTBL" FromRole="EmployeeTBL" ToRole="InternalChatTBL" />
+          <NavigationProperty Name="ProjectTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_EmployeesTBL" FromRole="EmployeeTBL" ToRole="ProjectTBL" />
+          <NavigationProperty Name="ProjectTBL1" Relationship="AYMCOMPModel.FK_ProjectTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="ProjectTBL" />
+          <NavigationProperty Name="RecoverPasswordTBL" Relationship="AYMCOMPModel.FK_RecoverPasswordTBL_EmployeeTBL" FromRole="EmployeeTBL" ToRole="RecoverPasswordTBL" />
+        </EntityType>
+        <EntityType Name="EmployeeTypeTBL">
+          <Key>
+            <PropertyRef Name="EmployeeTypeID" />
+          </Key>
+          <Property Name="EmployeeTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTypeNumber" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_EmployeeTypeTBL" FromRole="EmployeeTypeTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="ExpenseRevenueTBL">
+          <Key>
+            <PropertyRef Name="ExpenseRevenueID" />
+          </Key>
+          <Property Name="ExpenseRevenueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AutoCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ExpenseRevenueTypeIDD" Type="Int32" />
+          <Property Name="ResourceFromIDD" Type="Int32" />
+          <Property Name="ResourceToIDD" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="ClientIDD" Type="Int32" />
+          <Property Name="EmployeeIDD" Type="Int32" />
+          <Property Name="ProjectIDD" Type="Int32" />
+          <Property Name="Expense0_Revenue1" Type="Boolean" Nullable="false" />
+          <Property Name="InvoiceFileURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ExpenseRevenueNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfMaking" Type="DateTime" Precision="3" />
+          <Property Name="DateOfLastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeIDDLastUpdate" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ClientsTBL" FromRole="ExpenseRevenueTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_EmployeesTBL" FromRole="ExpenseRevenueTBL" ToRole="EmployeeTBL" />
+          <NavigationProperty Name="EmployeeTBL1" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_EmployeesTBL1" FromRole="ExpenseRevenueTBL" ToRole="EmployeeTBL" />
+          <NavigationProperty Name="ExpenseRevenueTypeTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ExprenseRevenueTypeTBL" FromRole="ExpenseRevenueTBL" ToRole="ExpenseRevenueTypeTBL" />
+          <NavigationProperty Name="ProjectTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ProjectsTBL" FromRole="ExpenseRevenueTBL" ToRole="ProjectTBL" />
+          <NavigationProperty Name="ResourceTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ResourceTBL" FromRole="ExpenseRevenueTBL" ToRole="ResourceTBL" />
+          <NavigationProperty Name="ResourceTBL1" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ResourceTBL1" FromRole="ExpenseRevenueTBL" ToRole="ResourceTBL" />
+        </EntityType>
+        <EntityType Name="ExpenseRevenueTypeTBL">
+          <Key>
+            <PropertyRef Name="ExpenseRevenueTypeID" />
+          </Key>
+          <Property Name="ExpenseRevenueTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpenseRevenueName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ExpenseRevenueNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ExpenseRevenueTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ExprenseRevenueTypeTBL" FromRole="ExpenseRevenueTypeTBL" ToRole="ExpenseRevenueTBL" />
+        </EntityType>
+        <EntityType Name="GenderTBL">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenderName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_GenderTBL" FromRole="GenderTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_GenderTBL" FromRole="GenderTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="GovernorateTBL">
+          <Key>
+            <PropertyRef Name="GovernorateID" />
+          </Key>
+          <Property Name="GovernorateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GovernorateName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CountryIDD" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CityTBL" Relationship="AYMCOMPModel.FK_CityTBL_GovernorateTBL" FromRole="GovernorateTBL" ToRole="CityTBL" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_GovernorateTBL" FromRole="GovernorateTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="CountryTBL" Relationship="AYMCOMPModel.FK_GovernorateTBL_CountryTBL" FromRole="GovernorateTBL" ToRole="CountryTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_GovernorateTBL" FromRole="GovernorateTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="InternalChatTBL">
+          <Key>
+            <PropertyRef Name="InternalChatID" />
+          </Key>
+          <Property Name="InternalChatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeIDD" Type="Int32" />
+          <Property Name="TextMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfMaking" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_InternalChatTBL_EmployeesTBL" FromRole="InternalChatTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="MaritalStatusTBL">
+          <Key>
+            <PropertyRef Name="MaritalStatusID" />
+          </Key>
+          <Property Name="MaritalStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaritalStatusName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_MaritalStatusTBL" FromRole="MaritalStatusTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_MaritalStatusTBL" FromRole="MaritalStatusTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="NationalityTBL">
+          <Key>
+            <PropertyRef Name="NationalityID" />
+          </Key>
+          <Property Name="NationalityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NationalityName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_NationalityTBL" FromRole="NationalityTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_NationalityTBL" FromRole="NationalityTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="ProfessionTBL">
+          <Key>
+            <PropertyRef Name="ProfessionID" />
+          </Key>
+          <Property Name="ProfessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfessionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ClientsTBL_ProfessionTBL" FromRole="ProfessionTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_ProfessionTBL" FromRole="ProfessionTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="ProjectPriceTBL">
+          <Key>
+            <PropertyRef Name="ProjectPriceID" />
+          </Key>
+          <Property Name="ProjectPriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectPriceAmount" Type="Int32" />
+          <Property Name="ProjectPriceNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ProjectTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_ProjectPriceTBL" FromRole="ProjectPriceTBL" ToRole="ProjectTBL" />
+        </EntityType>
+        <EntityType Name="ProjectStatusTBL">
+          <Key>
+            <PropertyRef Name="ProjectStatusID" />
+          </Key>
+          <Property Name="ProjectStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectStatusName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectStatusNumber" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ProjectTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_ProjectStatusTBL" FromRole="ProjectStatusTBL" ToRole="ProjectTBL" />
+        </EntityType>
+        <EntityType Name="ProjectTBL">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AutoCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectStatusIDD" Type="Int32" />
+          <Property Name="ProjectRequirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectPriceIDD" Type="Int32" />
+          <Property Name="ProjectTypeIDD" Type="Int32" />
+          <Property Name="ProjectNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeIDDManager" Type="Int32" />
+          <Property Name="ClientIDD" Type="Int32" />
+          <Property Name="ProjectDetailsFileURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfMaking" Type="DateTime" Precision="3" />
+          <Property Name="DateOfLastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeIDDLastUpdate" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ClientTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_ClientsTBL" FromRole="ProjectTBL" ToRole="ClientTBL" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_EmployeesTBL" FromRole="ProjectTBL" ToRole="EmployeeTBL" />
+          <NavigationProperty Name="EmployeeTBL1" Relationship="AYMCOMPModel.FK_ProjectTBL_EmployeeTBL" FromRole="ProjectTBL" ToRole="EmployeeTBL" />
+          <NavigationProperty Name="ExpenseRevenueTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ProjectsTBL" FromRole="ProjectTBL" ToRole="ExpenseRevenueTBL" />
+          <NavigationProperty Name="ProjectPriceTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_ProjectPriceTBL" FromRole="ProjectTBL" ToRole="ProjectPriceTBL" />
+          <NavigationProperty Name="ProjectStatusTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_ProjectStatusTBL" FromRole="ProjectTBL" ToRole="ProjectStatusTBL" />
+          <NavigationProperty Name="ProjectTypeTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_ProjectTypeTBL" FromRole="ProjectTBL" ToRole="ProjectTypeTBL" />
+        </EntityType>
+        <EntityType Name="ProjectTypeTBL">
+          <Key>
+            <PropertyRef Name="ProjectTypeID" />
+          </Key>
+          <Property Name="ProjectTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectTypeNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ProjectTBL" Relationship="AYMCOMPModel.FK_ProjectsTBL_ProjectTypeTBL" FromRole="ProjectTypeTBL" ToRole="ProjectTBL" />
+        </EntityType>
+        <EntityType Name="RecoverPasswordTBL">
+          <Key>
+            <PropertyRef Name="RecoverPasswordID" />
+          </Key>
+          <Property Name="RecoverPasswordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecoverPasswordAutoCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeIDD" Type="Int32" />
+          <Property Name="DateOfMaking" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_RecoverPasswordTBL_EmployeeTBL" FromRole="RecoverPasswordTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="ResourceTBL">
+          <Key>
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="ResourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResourceName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ResourceNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ExpenseRevenueTBL" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ResourceTBL" FromRole="ResourceTBL" ToRole="ExpenseRevenueTBL" />
+          <NavigationProperty Name="ExpenseRevenueTBL1" Relationship="AYMCOMPModel.FK_ExprenseRevenueTBL_ResourceTBL1" FromRole="ResourceTBL" ToRole="ExpenseRevenueTBL" />
+        </EntityType>
+        <EntityType Name="SalaryTBL">
+          <Key>
+            <PropertyRef Name="SalaryID" />
+          </Key>
+          <Property Name="SalaryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalaryAmount" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeTBL" Relationship="AYMCOMPModel.FK_EmployeesTBL_SalaryTBL" FromRole="SalaryTBL" ToRole="EmployeeTBL" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_EmployeesTBL_BranchesTBL">
+          <End Type="AYMCOMPModel.BranchTBL" Role="BranchTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchTBL">
+              <PropertyRef Name="BranchID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="BranchIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CallingAPISAuthTBL_EmployeesTBL">
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.CallingAPISAuthTBL" Role="CallingAPISAuthTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="CallingAPISAuthTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityTBL_CountryTBL">
+          <End Type="AYMCOMPModel.CountryTBL" Role="CountryTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.CityTBL" Role="CityTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTBL">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="CityTBL">
+              <PropertyRef Name="CountryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityTBL_GovernorateTBL">
+          <End Type="AYMCOMPModel.GovernorateTBL" Role="GovernorateTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.CityTBL" Role="CityTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GovernorateTBL">
+              <PropertyRef Name="GovernorateID" />
+            </Principal>
+            <Dependent Role="CityTBL">
+              <PropertyRef Name="GovernorateIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_CityTBL">
+          <End Type="AYMCOMPModel.CityTBL" Role="CityTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityTBL">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="CityIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_CityTBL">
+          <End Type="AYMCOMPModel.CityTBL" Role="CityTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityTBL">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="CityIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_CountryTBL">
+          <End Type="AYMCOMPModel.CountryTBL" Role="CountryTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTBL">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="CountryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_GenderTBL">
+          <End Type="AYMCOMPModel.GenderTBL" Role="GenderTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderTBL">
+              <PropertyRef Name="GenderID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="GenderIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_GovernorateTBL">
+          <End Type="AYMCOMPModel.GovernorateTBL" Role="GovernorateTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GovernorateTBL">
+              <PropertyRef Name="GovernorateID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="GovernorateIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_MaritalStatusTBL">
+          <End Type="AYMCOMPModel.MaritalStatusTBL" Role="MaritalStatusTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaritalStatusTBL">
+              <PropertyRef Name="MaritalStatusID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="MaritalStatusIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_NationalityTBL">
+          <End Type="AYMCOMPModel.NationalityTBL" Role="NationalityTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NationalityTBL">
+              <PropertyRef Name="NationalityID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="NationalityIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientsTBL_ProfessionTBL">
+          <End Type="AYMCOMPModel.ProfessionTBL" Role="ProfessionTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfessionTBL">
+              <PropertyRef Name="ProfessionID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="ProfessionIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientTBL_EducationTBL">
+          <End Type="AYMCOMPModel.EducationTBL" Role="EducationTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationTBL">
+              <PropertyRef Name="EducationID" />
+            </Principal>
+            <Dependent Role="ClientTBL">
+              <PropertyRef Name="EducationIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ClientsTBL">
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ExpenseRevenueTBL" Role="ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientTBL">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ClientIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_ClientsTBL">
+          <End Type="AYMCOMPModel.ClientTBL" Role="ClientTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ProjectTBL" Role="ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientTBL">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="ClientIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactUsReplyTBL_ContactUSTBL">
+          <End Type="AYMCOMPModel.ContactUSTBL" Role="ContactUSTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ContactUsReplyTBL" Role="ContactUsReplyTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactUSTBL">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="ContactUsReplyTBL">
+              <PropertyRef Name="ContactIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactUsReplyTBL_EmployeesTBL">
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ContactUsReplyTBL" Role="ContactUsReplyTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ContactUsReplyTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_CountryTBL">
+          <End Type="AYMCOMPModel.CountryTBL" Role="CountryTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTBL">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="CountryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GovernorateTBL_CountryTBL">
+          <End Type="AYMCOMPModel.CountryTBL" Role="CountryTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.GovernorateTBL" Role="GovernorateTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTBL">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="GovernorateTBL">
+              <PropertyRef Name="CountryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_EducationTBL">
+          <End Type="AYMCOMPModel.EducationTBL" Role="EducationTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationTBL">
+              <PropertyRef Name="EducationID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="EducationIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLoginTBL_EmployeesTBL">
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeLoginTBL" Role="EmployeeLoginTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeLoginTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_EmployeeTypeTBL">
+          <End Type="AYMCOMPModel.EmployeeTypeTBL" Role="EmployeeTypeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTypeTBL">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeTypeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_GenderTBL">
+          <End Type="AYMCOMPModel.GenderTBL" Role="GenderTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenderTBL">
+              <PropertyRef Name="GenderID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="GenderIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_GovernorateTBL">
+          <End Type="AYMCOMPModel.GovernorateTBL" Role="GovernorateTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GovernorateTBL">
+              <PropertyRef Name="GovernorateID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="GovernorateIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_MaritalStatusTBL">
+          <End Type="AYMCOMPModel.MaritalStatusTBL" Role="MaritalStatusTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaritalStatusTBL">
+              <PropertyRef Name="MaritalStatusID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="MaritalStatusIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_NationalityTBL">
+          <End Type="AYMCOMPModel.NationalityTBL" Role="NationalityTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NationalityTBL">
+              <PropertyRef Name="NationalityID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="NationalityIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_ProfessionTBL">
+          <End Type="AYMCOMPModel.ProfessionTBL" Role="ProfessionTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfessionTBL">
+              <PropertyRef Name="ProfessionID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="ProfessionIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeesTBL_SalaryTBL">
+          <End Type="AYMCOMPModel.SalaryTBL" Role="SalaryTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryTBL">
+              <PropertyRef Name="SalaryID" />
+            </Principal>
+            <Dependent Role="EmployeeTBL">
+              <PropertyRef Name="SalaryIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_EmployeesTBL">
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ExpenseRevenueTBL" Role="ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_EmployeesTBL1">
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ExpenseRevenueTBL" Role="ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="EmployeeIDDLastUpdate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InternalChatTBL_EmployeesTBL">
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.InternalChatTBL" Role="InternalChatTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="InternalChatTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_EmployeesTBL">
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ProjectTBL" Role="ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="EmployeeIDDManager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectTBL_EmployeeTBL">
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ProjectTBL" Role="ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="EmployeeIDDLastUpdate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecoverPasswordTBL_EmployeeTBL">
+          <End Type="AYMCOMPModel.EmployeeTBL" Role="EmployeeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.RecoverPasswordTBL" Role="RecoverPasswordTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTBL">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="RecoverPasswordTBL">
+              <PropertyRef Name="EmployeeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ExprenseRevenueTypeTBL">
+          <End Type="AYMCOMPModel.ExpenseRevenueTypeTBL" Role="ExpenseRevenueTypeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ExpenseRevenueTBL" Role="ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpenseRevenueTypeTBL">
+              <PropertyRef Name="ExpenseRevenueTypeID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ExpenseRevenueTypeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ProjectsTBL">
+          <End Type="AYMCOMPModel.ProjectTBL" Role="ProjectTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ExpenseRevenueTBL" Role="ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTBL">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ProjectIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ResourceTBL">
+          <End Type="AYMCOMPModel.ResourceTBL" Role="ResourceTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ExpenseRevenueTBL" Role="ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResourceTBL">
+              <PropertyRef Name="ResourceID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ResourceFromIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExprenseRevenueTBL_ResourceTBL1">
+          <End Type="AYMCOMPModel.ResourceTBL" Role="ResourceTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ExpenseRevenueTBL" Role="ExpenseRevenueTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResourceTBL">
+              <PropertyRef Name="ResourceID" />
+            </Principal>
+            <Dependent Role="ExpenseRevenueTBL">
+              <PropertyRef Name="ResourceToIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_ProjectPriceTBL">
+          <End Type="AYMCOMPModel.ProjectPriceTBL" Role="ProjectPriceTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ProjectTBL" Role="ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectPriceTBL">
+              <PropertyRef Name="ProjectPriceID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="ProjectPriceIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_ProjectStatusTBL">
+          <End Type="AYMCOMPModel.ProjectStatusTBL" Role="ProjectStatusTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ProjectTBL" Role="ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectStatusTBL">
+              <PropertyRef Name="ProjectStatusID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="ProjectStatusIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectsTBL_ProjectTypeTBL">
+          <End Type="AYMCOMPModel.ProjectTypeTBL" Role="ProjectTypeTBL" Multiplicity="0..1" />
+          <End Type="AYMCOMPModel.ProjectTBL" Role="ProjectTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypeTBL">
+              <PropertyRef Name="ProjectTypeID" />
+            </Principal>
+            <Dependent Role="ProjectTBL">
+              <PropertyRef Name="ProjectTypeIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AYMCOMPModelStoreContainer" CdmEntityContainer="AYMCOMPDataContext">
+          <EntitySetMapping Name="BranchTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.BranchTBL">
+              <MappingFragment StoreEntitySet="BranchTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="BranchNotes" ColumnName="BranchNotes" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CallingAPISAuthTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.CallingAPISAuthTBL">
+              <MappingFragment StoreEntitySet="CallingAPISAuthTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="EmployeeIDD" ColumnName="EmployeeIDD" />
+                <ScalarProperty Name="CallingAPISAuthPassword" ColumnName="CallingAPISAuthPassword" />
+                <ScalarProperty Name="CallingAPISAuthPinCode" ColumnName="CallingAPISAuthPinCode" />
+                <ScalarProperty Name="CallingAPISAuthID" ColumnName="CallingAPISAuthID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CareerTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.CareerTBL">
+              <MappingFragment StoreEntitySet="CareerTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateOfMaking" ColumnName="DateOfMaking" />
+                <ScalarProperty Name="CandidateIPAddress" ColumnName="CandidateIPAddress" />
+                <ScalarProperty Name="CandidateFileURL" ColumnName="CandidateFileURL" />
+                <ScalarProperty Name="CandidatePosition" ColumnName="CandidatePosition" />
+                <ScalarProperty Name="CandidateEmail" ColumnName="CandidateEmail" />
+                <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
+                <ScalarProperty Name="AutoCode" ColumnName="AutoCode" />
+                <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CityTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.CityTBL">
+              <MappingFragment StoreEntitySet="CityTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="GovernorateIDD" ColumnName="GovernorateIDD" />
+                <ScalarProperty Name="CountryIDD" ColumnName="CountryIDD" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ClientTBL">
+              <MappingFragment StoreEntitySet="ClientTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="EmployeeIDDLastUpdate" ColumnName="EmployeeIDDLastUpdate" />
+                <ScalarProperty Name="DateOfLastUpdate" ColumnName="DateOfLastUpdate" />
+                <ScalarProperty Name="DateOfMaking" ColumnName="DateOfMaking" />
+                <ScalarProperty Name="ClientNotes" ColumnName="ClientNotes" />
+                <ScalarProperty Name="CityIDD" ColumnName="CityIDD" />
+                <ScalarProperty Name="GovernorateIDD" ColumnName="GovernorateIDD" />
+                <ScalarProperty Name="CountryIDD" ColumnName="CountryIDD" />
+                <ScalarProperty Name="NationalityIDD" ColumnName="NationalityIDD" />
+                <ScalarProperty Name="EducationIDD" ColumnName="EducationIDD" />
+                <ScalarProperty Name="ProfessionIDD" ColumnName="ProfessionIDD" />
+                <ScalarProperty Name="GenderIDD" ColumnName="GenderIDD" />
+                <ScalarProperty Name="MaritalStatusIDD" ColumnName="MaritalStatusIDD" />
+                <ScalarProperty Name="OfficialDocumentURL" ColumnName="OfficialDocumentURL" />
+                <ScalarProperty Name="PassportOrIDNumber" ColumnName="PassportOrIDNumber" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="ClientAddress" ColumnName="ClientAddress" />
+                <ScalarProperty Name="ClientPhone2" ColumnName="ClientPhone2" />
+                <ScalarProperty Name="ClientPhone1" ColumnName="ClientPhone1" />
+                <ScalarProperty Name="ClientWhatsAppNumber" ColumnName="ClientWhatsAppNumber" />
+                <ScalarProperty Name="ClientFaceBookURL" ColumnName="ClientFaceBookURL" />
+                <ScalarProperty Name="ClientEmail2" ColumnName="ClientEmail2" />
+                <ScalarProperty Name="ClientEmail1" ColumnName="ClientEmail1" />
+                <ScalarProperty Name="ClientFullName" ColumnName="ClientFullName" />
+                <ScalarProperty Name="AutoCode" ColumnName="AutoCode" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUsReplyTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ContactUsReplyTBL">
+              <MappingFragment StoreEntitySet="ContactUsReplyTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateOfMaking" ColumnName="DateOfMaking" />
+                <ScalarProperty Name="EmployeeIDD" ColumnName="EmployeeIDD" />
+                <ScalarProperty Name="ContactIDD" ColumnName="ContactIDD" />
+                <ScalarProperty Name="ContactUSMessage" ColumnName="ContactUSMessage" />
+                <ScalarProperty Name="ContactUsReplyID" ColumnName="ContactUsReplyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUSTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ContactUSTBL">
+              <MappingFragment StoreEntitySet="ContactUSTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsSeen" ColumnName="IsSeen" />
+                <ScalarProperty Name="EmployeeIDDLastUpdate" ColumnName="EmployeeIDDLastUpdate" />
+                <ScalarProperty Name="DateOfLastUpdate" ColumnName="DateOfLastUpdate" />
+                <ScalarProperty Name="DateOfMaking" ColumnName="DateOfMaking" />
+                <ScalarProperty Name="ContactMessage" ColumnName="ContactMessage" />
+                <ScalarProperty Name="ContactIPAddress" ColumnName="ContactIPAddress" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.CountryTBL">
+              <MappingFragment StoreEntitySet="CountryTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EducationTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.EducationTBL">
+              <MappingFragment StoreEntitySet="EducationTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="EducationName" ColumnName="EducationName" />
+                <ScalarProperty Name="EducationID" ColumnName="EducationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeLoginTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.EmployeeLoginTBL">
+              <MappingFragment StoreEntitySet="EmployeeLoginTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="SessionUnique" ColumnName="SessionUnique" />
+                <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="LoginIPAddress" ColumnName="LoginIPAddress" />
+                <ScalarProperty Name="EmployeeIDD" ColumnName="EmployeeIDD" />
+                <ScalarProperty Name="EmployeeLoginID" ColumnName="EmployeeLoginID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.EmployeeTBL">
+              <MappingFragment StoreEntitySet="EmployeeTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsStopped" ColumnName="IsStopped" />
+                <ScalarProperty Name="DateOfLastUpdate" ColumnName="DateOfLastUpdate" />
+                <ScalarProperty Name="DateOfMaking" ColumnName="DateOfMaking" />
+                <ScalarProperty Name="BranchIDD" ColumnName="BranchIDD" />
+                <ScalarProperty Name="CityIDD" ColumnName="CityIDD" />
+                <ScalarProperty Name="GovernorateIDD" ColumnName="GovernorateIDD" />
+                <ScalarProperty Name="CountryIDD" ColumnName="CountryIDD" />
+                <ScalarProperty Name="NationalityIDD" ColumnName="NationalityIDD" />
+                <ScalarProperty Name="SalaryIDD" ColumnName="SalaryIDD" />
+                <ScalarProperty Name="ProfessionIDD" ColumnName="ProfessionIDD" />
+                <ScalarProperty Name="EducationIDD" ColumnName="EducationIDD" />
+                <ScalarProperty Name="GenderIDD" ColumnName="GenderIDD" />
+                <ScalarProperty Name="MaritalStatusIDD" ColumnName="MaritalStatusIDD" />
+                <ScalarProperty Name="EmployeeTypeIDD" ColumnName="EmployeeTypeIDD" />
+                <ScalarProperty Name="DocumentFileURL" ColumnName="DocumentFileURL" />
+                <ScalarProperty Name="ResumeFIleURL" ColumnName="ResumeFIleURL" />
+                <ScalarProperty Name="PassportORIDIMGURL" ColumnName="PassportORIDIMGURL" />
+                <ScalarProperty Name="PassportOrIDNumber" ColumnName="PassportOrIDNumber" />
+                <ScalarProperty Name="DateOfeaving" ColumnName="DateOfeaving" />
+                <ScalarProperty Name="DateOfHiring" ColumnName="DateOfHiring" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="EmployeeAddress" ColumnName="EmployeeAddress" />
+                <ScalarProperty Name="EmployeePhone2" ColumnName="EmployeePhone2" />
+                <ScalarProperty Name="EmployeePhone1" ColumnName="EmployeePhone1" />
+                <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+                <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+                <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+                <ScalarProperty Name="AutoCode" ColumnName="AutoCode" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeTypeTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.EmployeeTypeTBL">
+              <MappingFragment StoreEntitySet="EmployeeTypeTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="EmployeeTypeNumber" ColumnName="EmployeeTypeNumber" />
+                <ScalarProperty Name="EmployeeTypeName" ColumnName="EmployeeTypeName" />
+                <ScalarProperty Name="EmployeeTypeID" ColumnName="EmployeeTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpenseRevenueTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ExpenseRevenueTBL">
+              <MappingFragment StoreEntitySet="ExpenseRevenueTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="EmployeeIDDLastUpdate" ColumnName="EmployeeIDDLastUpdate" />
+                <ScalarProperty Name="DateOfLastUpdate" ColumnName="DateOfLastUpdate" />
+                <ScalarProperty Name="DateOfMaking" ColumnName="DateOfMaking" />
+                <ScalarProperty Name="ExpenseRevenueNotes" ColumnName="ExpenseRevenueNotes" />
+                <ScalarProperty Name="InvoiceFileURL" ColumnName="InvoiceFileURL" />
+                <ScalarProperty Name="Expense0_Revenue1" ColumnName="Expense0_Revenue1" />
+                <ScalarProperty Name="ProjectIDD" ColumnName="ProjectIDD" />
+                <ScalarProperty Name="EmployeeIDD" ColumnName="EmployeeIDD" />
+                <ScalarProperty Name="ClientIDD" ColumnName="ClientIDD" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ResourceToIDD" ColumnName="ResourceToIDD" />
+                <ScalarProperty Name="ResourceFromIDD" ColumnName="ResourceFromIDD" />
+                <ScalarProperty Name="ExpenseRevenueTypeIDD" ColumnName="ExpenseRevenueTypeIDD" />
+                <ScalarProperty Name="AutoCode" ColumnName="AutoCode" />
+                <ScalarProperty Name="ExpenseRevenueID" ColumnName="ExpenseRevenueID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpenseRevenueTypeTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ExpenseRevenueTypeTBL">
+              <MappingFragment StoreEntitySet="ExpenseRevenueTypeTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ExpenseRevenueNotes" ColumnName="ExpenseRevenueNotes" />
+                <ScalarProperty Name="ExpenseRevenueName" ColumnName="ExpenseRevenueName" />
+                <ScalarProperty Name="ExpenseRevenueTypeID" ColumnName="ExpenseRevenueTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GenderTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.GenderTBL">
+              <MappingFragment StoreEntitySet="GenderTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GovernorateTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.GovernorateTBL">
+              <MappingFragment StoreEntitySet="GovernorateTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CountryIDD" ColumnName="CountryIDD" />
+                <ScalarProperty Name="GovernorateName" ColumnName="GovernorateName" />
+                <ScalarProperty Name="GovernorateID" ColumnName="GovernorateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternalChatTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.InternalChatTBL">
+              <MappingFragment StoreEntitySet="InternalChatTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateOfMaking" ColumnName="DateOfMaking" />
+                <ScalarProperty Name="TextMessage" ColumnName="TextMessage" />
+                <ScalarProperty Name="EmployeeIDD" ColumnName="EmployeeIDD" />
+                <ScalarProperty Name="InternalChatID" ColumnName="InternalChatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaritalStatusTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.MaritalStatusTBL">
+              <MappingFragment StoreEntitySet="MaritalStatusTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="MaritalStatusName" ColumnName="MaritalStatusName" />
+                <ScalarProperty Name="MaritalStatusID" ColumnName="MaritalStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NationalityTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.NationalityTBL">
+              <MappingFragment StoreEntitySet="NationalityTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="NationalityName" ColumnName="NationalityName" />
+                <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfessionTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ProfessionTBL">
+              <MappingFragment StoreEntitySet="ProfessionTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
+                <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectPriceTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ProjectPriceTBL">
+              <MappingFragment StoreEntitySet="ProjectPriceTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ProjectPriceNotes" ColumnName="ProjectPriceNotes" />
+                <ScalarProperty Name="ProjectPriceAmount" ColumnName="ProjectPriceAmount" />
+                <ScalarProperty Name="ProjectPriceID" ColumnName="ProjectPriceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectStatusTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ProjectStatusTBL">
+              <MappingFragment StoreEntitySet="ProjectStatusTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ProjectStatusNumber" ColumnName="ProjectStatusNumber" />
+                <ScalarProperty Name="ProjectStatusName" ColumnName="ProjectStatusName" />
+                <ScalarProperty Name="ProjectStatusID" ColumnName="ProjectStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ProjectTBL">
+              <MappingFragment StoreEntitySet="ProjectTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="EmployeeIDDLastUpdate" ColumnName="EmployeeIDDLastUpdate" />
+                <ScalarProperty Name="DateOfLastUpdate" ColumnName="DateOfLastUpdate" />
+                <ScalarProperty Name="DateOfMaking" ColumnName="DateOfMaking" />
+                <ScalarProperty Name="ProjectDetailsFileURL" ColumnName="ProjectDetailsFileURL" />
+                <ScalarProperty Name="ClientIDD" ColumnName="ClientIDD" />
+                <ScalarProperty Name="EmployeeIDDManager" ColumnName="EmployeeIDDManager" />
+                <ScalarProperty Name="ProjectNotes" ColumnName="ProjectNotes" />
+                <ScalarProperty Name="ProjectTypeIDD" ColumnName="ProjectTypeIDD" />
+                <ScalarProperty Name="ProjectPriceIDD" ColumnName="ProjectPriceIDD" />
+                <ScalarProperty Name="ProjectRequirements" ColumnName="ProjectRequirements" />
+                <ScalarProperty Name="ProjectStatusIDD" ColumnName="ProjectStatusIDD" />
+                <ScalarProperty Name="AutoCode" ColumnName="AutoCode" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectTypeTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ProjectTypeTBL">
+              <MappingFragment StoreEntitySet="ProjectTypeTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ProjectTypeNotes" ColumnName="ProjectTypeNotes" />
+                <ScalarProperty Name="ProjectTypeName" ColumnName="ProjectTypeName" />
+                <ScalarProperty Name="ProjectTypeID" ColumnName="ProjectTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecoverPasswordTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.RecoverPasswordTBL">
+              <MappingFragment StoreEntitySet="RecoverPasswordTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateOfMaking" ColumnName="DateOfMaking" />
+                <ScalarProperty Name="EmployeeIDD" ColumnName="EmployeeIDD" />
+                <ScalarProperty Name="RecoverPasswordAutoCode" ColumnName="RecoverPasswordAutoCode" />
+                <ScalarProperty Name="RecoverPasswordID" ColumnName="RecoverPasswordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResourceTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.ResourceTBL">
+              <MappingFragment StoreEntitySet="ResourceTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ResourceNotes" ColumnName="ResourceNotes" />
+                <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryTBL">
+            <EntityTypeMapping TypeName="AYMCOMPModel.SalaryTBL">
+              <MappingFragment StoreEntitySet="SalaryTBL">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+                <ScalarProperty Name="SalaryID" ColumnName="SalaryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AYMCOMPModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

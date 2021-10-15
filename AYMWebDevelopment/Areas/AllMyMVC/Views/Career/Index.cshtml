@@ -1,0 +1,202 @@
+﻿@{ string Vname = "Career";}
+@{
+    ViewBag.Title = @Vname;
+    //Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = null;
+}
+
+<center>
+    <h2>(@Vname)</h2>
+    <form class="form-horizontal" method="post">
+        <span>Search Word &nbsp;<input type="text" autocomplete="off" id="txtENBTNSearch" name="txtENBTNSearch" class="form-control col-md-3" required /></span>
+        <br />
+        <span>
+            <select id="Searchtype" name="Searchtype" class="form-control col-md-3" required>
+                <option value="1">AutoCode</option>
+                <option value="2">Email</option>
+                <option value="3">Name</option>
+                <option value="4">Position</option>
+                <option value="5">IP Address</option>
+                <option value="6">DateOfMaking</option>
+            </select>
+        </span>
+        <br />
+        <div>
+            <span><input placeholder="From Date" type="text" id="StartingDate" name="StartingDate" /> &nbsp;|&nbsp; <input placeholder="To Date" type="text" id="EndingDate" name="EndingDate" /> </span>
+        </div>
+        <br />
+        <span>
+            <input type="submit" class="btn btn-primary " id="LoadRecordsButton" value="Search">
+        </span>
+    </form>
+</center>
+<hr />
+<style>
+    #jtable-create-form, #jtable-edit-form {
+        display: block;
+        width: 350px;
+        overflow: hidden !important;
+        height: 350px;
+    }
+
+
+    .jtable-input-field-container:nth-of-type(1), .jtable-input-field-container:nth-of-type(2),
+    .jtable-input-field-container:nth-of-type(3), .jtable-input-field-container:nth-of-type(4),
+    .jtable-input-field-container:nth-of-type(5), .jtable-input-field-container:nth-of-type(6),
+    .jtable-input-field-container:nth-of-type(7) {
+        margin-bottom: 2px;
+        display: block;
+        float: left;
+        width: 49% !important;
+    }
+
+    /*    .jtable-input-field-container:nth-of-type(7), .jtable-input-field-container:nth-of-type(8) {
+        margin-bottom: 2px;
+        display: block;
+        float: left;
+        width: 98% !important;
+    }*/
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+            $('#LKTBLNAME').jtable({
+                title: '@Vname',
+                paging: true,
+                pageSize: 10,
+                sorting: true,
+                //defaultSorting: 'CourseName ASC',
+                columnResizable: true,
+                columnSelectable: true,
+                saveUserPreferences: true,
+                actions: {
+                    listAction: 'Career/listAll',
+                    //createAction: 'New/CreateOne',
+                    //updateAction: 'Career/UpdateOne',
+                    deleteAction: 'Career/DeleteOne',
+                    //createAction: function (data) {
+                    //    var deferred = $.Deferred();
+                    //    // Capture form submit result from the hidden iframe
+                    //    $("#postiframe").load(function () {
+                    //        iframeContents = $("#postiframe").contents().find("body").text();
+                    //        var result = $.parseJSON(iframeContents);
+                    //        deferred.resolve(result);
+                    //    });
+                    //    var form = $('#jtable-create-form');
+                    //    form.unbind("submit");
+                    //    form.attr("action", "Career/CreateOne");
+                    //    form.attr("method", "post");
+                    //    form.attr("enctype", "multipart/form-data");
+                    //    form.attr("encoding", "multipart/form-data");
+                    //    form.attr("target", "postiframe");
+                    //    form.submit();
+                    //    return deferred;
+                    //},
+                    //updateAction: function (data) {
+                    //    var deferred = $.Deferred();
+                    //    // Capture form submit result from the hidden iframe
+                    //    $("#postiframe").load(function () {
+                    //        iframeContents = $("#postiframe").contents().find("body").text();
+                    //        var result = $.parseJSON(iframeContents);
+                    //        deferred.resolve(result);
+                    //    });
+                    //    var form = $('#jtable-edit-form');
+                    //    form.unbind("submit");
+                    //    form.attr("action", "Career/UpdateOne");
+                    //    form.attr("method", "post");
+                    //    form.attr("enctype", "multipart/form-data");
+                    //    form.attr("encoding", "multipart/form-data");
+                    //    form.attr("target", "postiframe");
+                    //    form.submit();
+                    //    return deferred;
+                    //},
+                    },
+                fields: {
+                    CandidateID: {
+                        key: true,
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                    AutoCode: {
+                        title: 'AutoCode',
+                    },
+                    DateOfMaking: {
+                        title: 'DateOfMaking',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                    },
+                    CandidateName: {
+                        title: 'Name',
+                        inputClass: 'validate[required]'
+                    },
+                    CandidateEmail: {
+                        title: 'Email',
+                        inputClass: 'validate[required]'
+                    },
+                    CandidatePosition: {
+                        title: 'Position',
+                        inputClass: 'validate[required]'
+                    },
+                    CandidateIPAddress: {
+                        title: 'IPAddress',
+                        inputClass: 'validate[required]'
+                    },
+                    CandidateFileURL: {
+                        title: 'Receipt PDF',
+                        input: function (data) {
+                            return '<input type ="file" id="CandidateFileURL" name="CandidateFileURL" class="input-type-file" accept="application/pdf"/><iframe name="postiframe" id="postiframe" style="display: none" />';
+                        },
+                        display: function (data) {
+                            return ' <iframe src="../Images/Candidate/' + data.record.CandidateFileURL + '" width="100" height="50"> </iframe>'
+                        }
+                    },
+                    IsDeleted: {
+                        title: 'Delete',
+                        type: 'checkbox',
+                        defaultValue: 'false',
+                        values: { 'false': 'No', 'true': 'Yes' },
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                },
+                formCreated: function (event, data) {
+                    if (data.formType == "create") {
+                        $(".ui-dialog-title").text("Add New");
+                    }
+                    else {
+                        $(".ui-dialog-title").text("Modify");
+                    }
+
+                    //$("#Edit-AutoCode, #Edit-DateOfMaking, #Edit-CandidateName, #Edit-CandidateEmail, #Edit-CandidatePosition, #Edit-CandidateIPAddress").attr('readonly', true);
+                    $("#Edit-AutoCode, #Edit-DateOfMaking, #Edit-CandidateName, #Edit-CandidateEmail, #Edit-CandidatePosition, #Edit-CandidateIPAddress").prop('disabled', true);
+
+                },
+                formSubmitting: function (event, data) {
+                    return data.form.validationEngine('validate');
+                },
+                formClosed: function (event, data) {
+                    data.form.validationEngine('hide');
+                    data.form.validationEngine('detach');
+                    $(".ui-dialog-title").text("Remove");
+                },
+
+            });
+            $('#LKTBLNAME').jtable('load');
+
+            $('#LoadRecordsButton').click(function (e) {
+
+                e.preventDefault();
+                $('#LKTBLNAME').jtable('load', {
+
+                    txtENBTNSearch: $('#txtENBTNSearch').val(),
+                    Searchtype: $('#Searchtype').val(),
+                    StartingDate: $('#StartingDate').val(),
+                    EndingDate: $('#EndingDate').val()
+                });
+            });
+        });
+</script>
+
+<div id="LKTBLNAME" style="width:auto; text-align:center"></div>

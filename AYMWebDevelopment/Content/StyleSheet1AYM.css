@@ -1,0 +1,11 @@
+﻿.ui-dialog-buttonset, .ui-dialog-titlebar-close {
+    background-color: lightgray;
+}
+
+body {
+    background-color: #efa940 !important;
+    /*    background-color: #868484 !important;*/
+    color: #222 !important;
+/*    color: white !important;
+*/    background-image: none !important;
+}

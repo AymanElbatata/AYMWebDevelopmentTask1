@@ -1,0 +1,499 @@
+﻿@{ string Vname = "Client";}
+@{
+    ViewBag.Title = @Vname;
+    //Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = null;
+    //<link rel="stylesheet" href="~/Content/StyleSheet1AYM.css">
+}
+<center>
+    <h2>(@Vname)</h2>
+    <form class="form-horizontal" method="post">
+        <span>Search Word &nbsp;<input type="text" autocomplete="off" id="txtENBTNSearch" name="txtENBTNSearch" class="form-control col-md-3" required /></span>
+        <br />
+        <span>
+            <select id="Searchtype" name="Searchtype" class="form-control col-md-3" required>
+                <option value="1">AutoCode</option>
+                <option value="2">Email1</option>
+                <option value="3">Email2</option>
+                <option value="4">Phone1</option>
+                <option value="5">Phone2</option>
+                <option value="6">WhatsAppNumber</option>
+                <option value="7">FullName</option>
+                <option value="8">FaceBookURL</option>
+                <option value="9">Address</option>
+                <option value="10">Country Name</option>
+                <option value="11">Governorate Name</option>
+                <option value="12">CityName</option>
+                <option value="13">Nationality Name</option>
+                <option value="14">Profession Name</option>
+                <option value="15">Gender Name</option>
+                <option value="16">MaritalStatus Name</option>
+                <option value="16">Education Name</option>
+                <option value="17">DateOfBirth</option>
+                <option value="18">DateOfMaking</option>
+                <option value="19">DateOfLastUpdate</option>
+            </select>
+        </span>
+        <br />
+        <div>
+            <span><input placeholder="From Date" type="text" id="StartingDate" name="StartingDate" /> &nbsp;|&nbsp; <input placeholder="To Date" type="text" id="EndingDate" name="EndingDate" /> </span>
+        </div>
+        <br />
+        <br />
+        <span>
+            <input type="submit" class="btn btn-primary " id="LoadRecordsButton" value="Search">
+        </span>
+    </form>
+</center>
+<hr />
+<style>
+    #jtable-create-form, #jtable-edit-form {
+        display: block;
+        width: 700px;
+        overflow: hidden !important;
+        height: 600px;
+        padding: 5px;
+    }
+
+
+    .jtable-input-field-container:nth-of-type(1), .jtable-input-field-container:nth-of-type(2), .jtable-input-field-container:nth-of-type(3),
+    .jtable-input-field-container:nth-of-type(4), .jtable-input-field-container:nth-of-type(5), .jtable-input-field-container:nth-of-type(6),
+    .jtable-input-field-container:nth-of-type(7), .jtable-input-field-container:nth-of-type(8), .jtable-input-field-container:nth-of-type(9),
+    .jtable-input-field-container:nth-of-type(10), .jtable-input-field-container:nth-of-type(11), .jtable-input-field-container:nth-of-type(12),
+    .jtable-input-field-container:nth-of-type(13), .jtable-input-field-container:nth-of-type(14), .jtable-input-field-container:nth-of-type(15),
+    .jtable-input-field-container:nth-of-type(16), .jtable-input-field-container:nth-of-type(17), .jtable-input-field-container:nth-of-type(18),
+    .jtable-input-field-container:nth-of-type(19), .jtable-input-field-container:nth-of-type(20)
+     {
+        margin-bottom: 2px;
+        display: block;
+        float: left;
+        width: 25% !important;
+    }
+
+
+    .jtable-input-field-container:nth-of-type(21), .jtable-input-field-container:nth-of-type(22) {
+        margin-bottom: 2px;
+        display: block;
+        float: left;
+        width: 98% !important;
+    }
+</style>
+@*@section ForJtableImage {
+    <script src="~/Scripts/AYM/jquery-2.2.1.min.js"></script>
+    }*@
+<script type="text/javascript">
+    $(document).ready(function () {
+            $('#LKTBLNAME').jtable({
+                title: '@Vname',
+                paging: true,
+                pageSize: 10,
+                sorting: true,
+                //defaultSorting: 'CourseName ASC',
+                columnResizable: true,
+                columnSelectable: true,
+                saveUserPreferences: true,
+                actions: {
+                    listAction: 'Client/listAll',
+                    //createAction: 'New/CreateOne',
+                    //updateAction: 'New/UpdateOne',
+                    deleteAction: 'Client/DeleteOne',
+                    createAction: function (data) {
+                        var deferred = $.Deferred();
+                        // Capture form submit result from the hidden iframe
+                        $("#postiframe").load(function () {
+                            iframeContents = $("#postiframe").contents().find("body").text();
+                            var result = $.parseJSON(iframeContents);
+                            deferred.resolve(result);
+                        });
+                        var form = $('#jtable-create-form');
+                        form.unbind("submit");
+                        form.attr("action", "Client/CreateOne");
+                        form.attr("method", "post");
+                        form.attr("enctype", "multipart/form-data");
+                        form.attr("encoding", "multipart/form-data");
+                        form.attr("target", "postiframe");
+                        form.submit();
+                        return deferred;
+                    },
+                    updateAction: function (data) {
+                        var deferred = $.Deferred();
+                        // Capture form submit result from the hidden iframe
+                        $("#postiframe").load(function () {
+                            iframeContents = $("#postiframe").contents().find("body").text();
+                            var result = $.parseJSON(iframeContents);
+                            deferred.resolve(result);
+                        });
+                        var form = $('#jtable-edit-form');
+                        form.unbind("submit");
+                        form.attr("action", "Client/UpdateOne");
+                        form.attr("method", "post");
+                        form.attr("enctype", "multipart/form-data");
+                        form.attr("encoding", "multipart/form-data");
+                        form.attr("target", "postiframe");
+                        form.submit();
+                        return deferred;
+                    },
+                    },
+                fields: {
+                    ClientID: {
+                        key: true,
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                    AutoCode: {
+                        title: 'AutoCode',
+                    },
+                    DateOfMaking: {
+                        title: 'DateOfMaking',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                    },
+                    DateOfLastUpdate: {
+                        title: 'DateOfUpdate',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                    },
+                    PassportOrIDNumber: {
+                        title: 'Passport/ID Num',
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ClientEmail1: {
+                        title: 'Email1',
+                        inputClass: 'validate[required,custom[email]]',
+                        list: false
+                    },
+                    ClientEmail2: {
+                        title: 'Email2',
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ClientFullName: {
+                        title: 'FullName',
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ClientPhone1: {
+                        title: 'Phone1',
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ClientPhone2: {
+                        title: 'Phone2',
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ClientWhatsAppNumber: {
+                        title: 'WhatsAppNumber',
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    DateOfBirth: {
+                        title: 'DateOfBirth',
+                        type: 'date',
+                        displayFormat: 'yy-mm-dd',
+                        inputClass: 'validate[required,custom[date]]',
+                        list: false
+                    },
+                    MaritalStatusIDD: {
+                        title: 'MaritalStatus',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_MaritalStatus_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_MaritalStatus_ADDEDIT';
+                            }
+                        },
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    GenderIDD: {
+                        title: 'Gender',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Gender_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Gender_ADDEDIT';
+                            }
+                        },
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    EducationIDD: {
+                        title: 'Education',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Education_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Education_ADDEDIT';
+                            }
+                        },
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ProfessionIDD: {
+                        title: 'Profession',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Profession_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Profession_ADDEDIT';
+                            }
+                        },
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    CountryIDD: {
+                        title: 'Country',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Country_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Country_ADDEDIT';
+                            }
+                        },
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    GovernorateIDD: {
+                        title: 'Governorate',
+                        dependsOn: 'CountryIDD',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'Cpanel/Get_Governorate_List';
+                            }
+                            return 'CPanel/Get_Governorate_AddEditBYID?CountryIDS=' + data.dependedValues.CountryIDD;
+                        },
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    CityIDD: {
+                        title: 'City',
+                        dependsOn: 'GovernorateIDD',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'Cpanel/Get_City_List';
+                            }
+                            return 'CPanel/Get_City_AddEditBYID?GovernorateIDS=' + data.dependedValues.GovernorateIDD;
+                        },
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    NationalityIDD: {
+                        title: 'Nationality',
+                        options: function (data) {
+                            if (data.source == 'list') {
+                                return 'CPanel/Get_Nationality_List';
+                            }
+                            // ADD OR EDIT
+                            else {
+                                return 'CPanel/Get_Nationality_ADDEDIT';
+                            }
+                        },
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    OfficialDocumentURL: {
+                        title: 'Document PDF',
+                        input: function (data) {
+                            return '<input type ="file" id="OfficialDocumentURL" name="OfficialDocumentURL" class="input-type-file" accept="application/pdf"/><iframe name="postiframe" id="postiframe" style="display: none" />';
+                        },
+                        display: function (data) {
+                            return ' <iframe src="../Images/Client/' + data.record.OfficialDocumentURL + '" width="100" height="50"> </iframe>'
+                        }
+                    },
+                    ClientAddress: {
+                        title: 'Address',
+                        type: 'textarea',
+                        inputClass: 'validate[required]',
+                        list: false
+                    },
+                    ClientNotes: {
+                        title: 'Notes',
+                        type: 'textarea',
+                        //inputClass: 'validate[required]',
+                        list: false
+                    },
+                    IsDeleted: {
+                        title: 'Delete',
+                        type: 'checkbox',
+                        defaultValue: 'false',
+                        values: { 'false': 'No', 'true': 'Yes' },
+                        create: false,
+                        edit: false,
+                        list: false
+                    },
+                },
+                formCreated: function (event, data) {
+                    if (data.formType == "create") {
+                        $(".ui-dialog-title").text("Add New");
+                    }
+                    else {
+                        $(".ui-dialog-title").text("Modify");
+                    }
+
+
+                    $("#Edit-MaritalStatusIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A MaritalStatus",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-GenderIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A Gender",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-EducationIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "An Education",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-ProfessionIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A Profession",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-NationalityIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A Nationality",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-CountryIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A Country",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-GovernorateIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A Governorate",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+                    $("#Edit-CityIDD").chosen({
+                        no_results_text: "There is No Result : ",
+                        placeholder_text_single: "A City",
+                        width: "95%",
+                        rtl: true,
+                        search_contains: true,
+                    });
+
+
+                    $("#Edit-DateOfBirth").datepicker("option", "maxDate", "0");
+                    $("#Edit-DateOfBirth").datepicker("option", "changeYear", true);
+                    $("#Edit-DateOfBirth").datepicker("option", "changeMonth", true);
+
+                    $("#Edit-CountryIDD").change(function () {
+                        $('#Edit-GovernorateIDD').trigger("chosen:updated");
+                        $('#Edit-CityIDD').trigger("chosen:updated");
+                    });
+                    $("#Edit-GovernorateIDD").change(function () {
+                        $('#Edit-CityIDD').trigger("chosen:updated");
+                    });
+                    $("#Edit-ClientFullName, #Edit-ClientFaceBookURL, #Edit-ClientEmail1, #Edit-ClientEmail2, #Edit-ClientWhatsAppNumber, #Edit-ClientPhone1, #Edit-ClientPhone2").attr('autocomplete', 'off');
+                    //$("#Edit-AutoCode, #Edit-DateOfMaking, #Edit-DateOfLastUpdate").attr('readonly', true);
+                    $("#Edit-AutoCode, #Edit-DateOfMaking, #Edit-DateOfLastUpdate").prop('disabled', true);
+
+                    $("#Edit-PassportOrIDNumber").prop('maxlength', 16);
+
+
+                    $("#Edit-ClientPhone1, #Edit-ClientPhone2, #Edit-ClientWhatsAppNumber").keydown(function (e) {
+                        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                            (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                            (e.keyCode >= 35 && e.keyCode <= 40)) {
+                            return;
+                        }
+                        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                            e.preventDefault();
+                        }
+                    });
+                    //$(".ui-dialog-buttonset, .ui-dialog-titlebar-close").css('background-color', 'lightgray');
+
+                },
+                formSubmitting: function (event, data) {
+                    return data.form.validationEngine('validate');
+                },
+                formClosed: function (event, data) {
+                    data.form.validationEngine('hide');
+                    data.form.validationEngine('detach');
+                    $(".ui-dialog-title").text("Remove");
+                },
+
+            });
+            $('#LKTBLNAME').jtable('load');
+
+            $('#LoadRecordsButton').click(function (e) {
+
+                e.preventDefault();
+                $('#LKTBLNAME').jtable('load', {
+
+                    txtENBTNSearch: $('#txtENBTNSearch').val(),
+                    Searchtype: $('#Searchtype').val(),
+                    StartingDate: $('#StartingDate').val(),
+                    EndingDate: $('#EndingDate').val()
+                });
+            });
+        });
+</script>
+<script>
+
+    $(document).ready(function () {
+        //$("#StartingDate, #EndingDate").datepicker({
+        //    dateFormat: 'yy-mm-dd',
+        //    changeYear: true,
+        //    changeMonth: true,
+        //});
+        $("#StartingDate , #EndingDate").removeClass('hasDatepicker');
+        $("#StartingDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeYear: true,
+            changeMonth: true,
+
+            onSelect: function (selected) {
+                $("#EndingDate").datepicker("option", "minDate", selected)
+            }
+        });
+        $("#EndingDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeYear: true,
+            changeMonth: true,
+
+            onSelect: function (selected) {
+                $("#StartingDate").datepicker("option", "maxDate", selected)
+            }
+        });
+        $("#StartingDate, #EndingDate").attr('autocomplete', 'off');
+    });
+
+</script>
+<div id="LKTBLNAME" style="width:auto; text-align:center"></div>

@@ -1,0 +1,15 @@
+﻿@{
+    //Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = "~/Views/Shared/_Layout5.cshtml";
+
+    //Layout = null;
+}
+
+<br />
+<br />
+<div style="text-align:center">
+    <img src="~/Images/remove-from-database-icon.png" />
+    <br />
+    <h6 style="color:red">@Session["myerrordesc"].</h6>
+    @{Session["myerrordesc"] = null; }
+</div>

@@ -1,0 +1,171 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing:border-box;
+}
+body {
+/*    background-color: orange;
+*/    background-image: url('../Image/sl1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+/*    height: 900px;
+*/}
+
+.main
+{
+  margin: auto;
+  width: 80%;
+/*  position:fixed;
+*/}
+
+.main .navbarlogo
+{
+  width: 25%;
+  float: left;
+}
+
+.main .navbarlogo img
+{
+    padding: 10px;
+    width: 75%;
+}
+
+.main .navbarlinks
+{
+    padding: 25px 3px;
+/*    display:flex;
+    justify-content:space-between;
+*/
+}
+
+.main .navbarlinks ul
+{
+    list-style-type: none;
+}
+
+.main .navbarlinks ul li
+{
+    display: inline-block;
+    padding: 20px 12px;
+}
+
+.main .navbarlinks ul li a
+{
+    font-size: 18px;
+    color: white;
+
+}
+
+.main .content1 
+{
+    padding: 25px;
+    background-color: white;
+    opacity:.9;
+    border-radius:10px;
+}
+
+.clr
+{
+    clear: both;
+}
+.footer1 {
+    padding: 25px;
+    background-color: #804e1d;
+    text-align: center;
+    color: white;
+    border-radius: 15px;
+    font-family: 'segoe ui light';
+}
+    .footer1 p {
+        color: white;
+    }
+    .footer1 a {
+        color: white;
+    }
+/*    .footer1 p a {
+        color: white;
+    }*/
+    a {
+        text-decoration: none;
+    }
+
+/*.button {
+    transition-duration: 0.4s;
+}
+
+    .button:hover {
+        background-color: #4CAF50;*/ /* Green */
+        /*color: white;
+    }*/
+/*
+.main .overlay-1{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url(../Image/sl1.jpg) no-repeat center center fixed;
+    background-size: 100% 100%;
+}
+*/
+
+/*.myfields
+{
+    padding:30px;
+}*/
+.career {
+    background-image: url('../../../Images/Career-change.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /*    background-attachment: fixed;
+*/ border-radius: 10px;
+}
+
+.contactus {
+    /*    background-image: url('../../../Images/contactus-1.jpg');
+*/ background-image: url('../../../Images/contact-us-banner-2-1400x350.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /*    background-attachment: fixed;
+*/ border-radius: 10px;
+}
+
+.loginpage {
+    /*    background-image: url('../../../Images/loginpage.png');
+*/ background-image: url('../../../Images/open-access-logo-png-transparent.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 10px;
+}
+
+.myprofile {
+    background-image: url('../../../Images/profile_img.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.resetpassword1 {
+    background-image: url('../../../Images/Automated-Password-Reset-resized-600.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 10px;
+}
+
+.setnewpassword1 {
+    background-image: url('../../../Images/20823446-password-protected-circle-signs.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 10px;
+}
+
+.mytable1 {
+    background-color: whitesmoke;
+    background-image: url('../../../Images/EmailLogin.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: sandybrown solid 5px;
+}

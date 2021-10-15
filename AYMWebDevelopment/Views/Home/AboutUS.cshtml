@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "AboutUS";
+    Layout = "~/Views/Shared/_Layout5.cshtml";
+}
+@*<style>
+    a.hover{
+        background:center;
+        background-color:black;
+        opacity:.05;
+        background-image:url(../../Images/main.png)
+    }
+</style>*@
+    <center>
+        <div>
+            <ul style="list-style:none; padding:5px; display:inline-block" class="inline">
+                <li class="list-inline-item">
+                    <center>
+                        <a href="https://www.doyoubuzz.com/ayman-elbatata" target="_blank">
+                            <img src="~/Images/OurTeam/aym1.jpeg" height="300" width="300" style="border-radius:10px" class="img-thumbnail" />
+                        </a>
+                        <br />
+                        <h5 id="abc">ASP.NET Web Developer</h5>
+                        <br />
+                    </center>
+                </li>
+                <li class="list-inline-item">
+                    <center>
+                        <a href="https://www.facebook.com/A7med.Batata" target="_blank">
+                            <img src="~/Images/OurTeam/17CD8F9B-A18A-4FF8-9390-9918701761CF.jpeg" height="300" width="300" style="border-radius:10px" class="img-thumbnail" />
+                        </a>
+                        <br />
+                        <h5>UI UX Designer</h5>
+                        <br />
+                    </center>
+                </li>
+            </ul>
+        </div>
+    </center>
+<script>
+    $(document).ready(function () {
+        $("li a").hover(function () {
+            //$(this).css("border", "dashed");
+            $(this).css("opacity", ".5");
+        })
+        $("li a").mouseleave(function () {
+            //$(this).css("border", "dashed");
+            $(this).css("opacity", "1");
+        })
+    });
+
+</script>

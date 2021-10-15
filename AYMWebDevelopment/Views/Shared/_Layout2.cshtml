@@ -1,0 +1,152 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="AYM Web Development">
+    <meta name="keywords" content="AYM, Web, Development">
+    <meta name="author" content="Ayman Elbatata">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title - AYM Web_Dev</title>
+    <link rel="icon" type="image/x-icon" href="@Url.Content("~/Images/logoforicon_1_JWA_icon.ico")">
+    @*<link rel="icon" href="~/DesignTemps/ahmeddesign1/imges/logo/aym-webdev1.png" style="width: 300px; height: 200px">*@
+    @*<link rel="icon" href="~/Images/iconPNG2.png" style="width: 300px; height: 200px">*@
+    <!-- [if lt IE 9]>
+    <script src="~/Scripts/AYM/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+    @Styles.Render("~/CSFILES1")
+    @Styles.Render("~/CSFILES2")
+
+    @Scripts.Render("~/JSFILES1")
+    <!-- hi-->
+</head>
+<body>
+
+    <!--<div class="wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.5s"><h1>Ahmed Mohamed Elsayed</h1></div>-->
+    <!-- Start header -->
+    <div class="container-fluid px-md-5 pt-md-5 container-1">
+        <div class="row justify-content-between">
+            <div class="col-md-8 order-md-last">
+                <div class="row">
+                    <div class="col-md-6 text-center middel">
+                        <a href="@Url.Action("Index","Home", new { Area="" }, null)">
+                            <img src="~/Images/iconPNG1.png" style="width: 200px">
+                        </a>
+                        @if (Session["myerrordesc"] == null)
+                        {
+                            <img src="~/Images/DbConnectionOK.png" class="img-center" height="30" width="30" />
+                        }
+                        else
+                        {
+                            <img src="~/Images/remove-from-database-icon.png" class="img-center" height="30" width="30" />
+                        }
+                    </div>
+                    <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
+                        <div class="search-box my-auto">
+                            <input class="text-x" type="text" name="" placeholder="Type To Search">
+                            <a href="#" class="btn-search">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-md-start justify-content-sm-center text-center mb-3 left">
+                <a href="#" class="m1a1">
+                    <i class="fa fa-facebook fa-2x"></i>
+                </a>
+                <a href="#" class="m1a1">
+                    <i class="fa fa-instagram fa-2x"></i>
+                </a>
+                <a href="#" class="m1a1">
+                    <i class="fa fa-whatsapp fa-2x"></i>
+                </a>
+                <a href="#" class="m1a1">
+                    <i class="fa fa-twitter fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- End header -->
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Index","Home", new { Area="" }, null)">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Projects","Home", new { Area="" }, null)">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Clients","Home", new { Area="" }, null)">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("AboutUS","Home", new { Area="" }, null)">About US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("ContactUS","Home", new { Area="" }, null)">Contact US</a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("MyProfile","Cpanel", new { Area="AllMyMVC" }, null)">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Cpanel", new { Area="AllMyMVC" }, null)">Management</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","InternalChat", new { Area="AllMyMVC" }, null)">Chat</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Logout","Home", new { Area="" }, null)">LogOut</a></li>
+                    }
+                    else
+                    {
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("LoginPage","Home", new { Area="" }, null)">Login</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Start Slider -->
+    @*<div class="slider">
+            <div id="main-slider" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                    <div class="overlay"></div>
+                    <div class="carousel-item carousel-1 active">
+                    </div>
+                    <div class="carousel-item carousel-2">
+                    </div>
+                    <div class="carousel-item carousel-3">
+                    </div>
+                </div>
+                <ol class="carousel-indicators">
+                    <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                    <li data-target="#main-slider" data-slide-to="1"></li>
+                    <li data-target="#main-slider" data-slide-to="2"></li>
+                </ol>
+            </div>
+        </div>*@
+
+    <div class="container body-content">
+        @*@Html.Partial("_LoginPartial")*@
+        @*<hr />*@
+        <br />
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <center>
+                <p>&copy; @DateTime.Now.Year - AYM Web Development</p>
+            </center>
+        </footer>
+    </div>
+
+
+    @RenderSection("scripts1", required: false)
+    @Scripts.Render("~/JSFILES2")
+    @Scripts.Render("~/JSFILES3")
+</body>
+</html>

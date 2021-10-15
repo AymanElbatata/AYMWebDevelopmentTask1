@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "C-Panel";
+    Layout = "~/Views/Shared/_Layout5.cshtml";
+}
+
+<center>
+    <h4 style="font:bold; border:5px solid; padding:20px">Data Management</h4>
+    <br />
+    <div>
+        @{ int countt = 1;}
+
+        <table cellpadding="15">
+            <tr>
+                <td style="border:2px solid">
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Employee", "Index", "Employee", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Employee Type", "Index", "EmployeeType", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Employee Login", "Index", "EmployeeLogin", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Employee Salary", "Index", "Salary", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Expense / Revenue", "Index", "ExpenseRevenue", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Resource", "Index", "Resource", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Expense/Rev Type", "Index", "ExpenseRevenueType", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Client", "Index", "Client", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Project", "Index", "Project", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Project Price", "Index", "ProjectPrice", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Project Status", "Index", "ProjectStatus", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Project Type", "Index", "ProjectType", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Branch", "Index", "Branch", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Gender", "Index", "Gender", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Marital Status", "Index", "MaritalStatus", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Education", "Index", "Education", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Profession", "Index", "Profession", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Country", "Index", "Country", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Governorate", "Index", "Governorate", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("City", "Index", "City", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Nationality", "Index", "Nationality", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Contact US", "Index", "ContactUS", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                    <br />
+                    (@(countt++)) &nbsp;
+                    @Ajax.ActionLink("Career", "Index", "Career", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+                </td>
+                <td colspan="@countt" style="border:2px solid">
+                    <div id="MYDivList">
+                    </div>
+                </td>
+            </tr>
+            @*<tr>
+            <th>
+                @(countt++) &nbsp;
+                @Ajax.ActionLink("Client", "Index", "Client", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+            </th>
+            <th>
+                @(countt++) &nbsp;
+                @Ajax.ActionLink("Project", "Index", "WriterType", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+            </th>
+            <th>
+                @(countt++) &nbsp;
+                @Ajax.ActionLink("ExprenseRevenue", "Index", "WriterLogin", new { Area = "AllMyMVC" }, new AjaxOptions { UpdateTargetId = "MYDivList", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })
+            </th>
+        </tr>*@
+        </table>
+    </div>
+
+    @*<div id="MYDivList">
+    </div>*@
+</center>
+

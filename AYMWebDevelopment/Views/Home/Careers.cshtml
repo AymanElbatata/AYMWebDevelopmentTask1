@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Careers";
+    Layout = "~/Views/Shared/_Layout5.cshtml";
+}
+
+@*<h4>Careers</h4>
+<br />*@
+@if (ViewBag.message != null)
+{
+    <span style="color:red">
+        @ViewBag.message
+    </span>
+}
+@if (ViewBag.Successful != null)
+{
+    <span style="color:green">
+        @ViewBag.Successful
+    </span>
+}
+<br />
+<div class="fields career">
+    @using (Html.BeginForm("Careers", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <form method="post">
+            <input type="text" name="candidatename" id="candidatename" placeholder="Your Name" required class="form-control col-md-3" />
+            <br />
+            <input type="email" name="candidateemail" id="candidateemail" placeholder="Your Email" required class="form-control col-md-3" />
+            <br />
+            <input type="text" name="candidateposition" id="candidateposition" placeholder="Your Position" required class="form-control col-md-3" />
+            <br />
+            <span>C.V/Resume:</span> <input type="file" accept="application/pdf" data-type='pdf' class="profile_img" name="Image1" id="Image1" required="required">
+            <br />
+            <br />
+            <center>
+                <input type="submit" id="btn222" value="Sending Data" class="btn btn-outline-success" />
+            </center>
+        </form>
+    }
+</div>
+<script>
+
+    $(document).ready(function () {
+        $("#candidatename, #candidateemail, #candidateposition").attr('autocomplete', 'off');
+    });
+</script>
