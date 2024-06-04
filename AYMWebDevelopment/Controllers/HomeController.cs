@@ -22,24 +22,7 @@ namespace AYMWebDevelopment.Controllers
         AYMCOMPDataContext mydb = new AYMCOMPDataContext();
         string Link = APILinks.GetAPILINK(1);
         private readonly IRepository<EmployeeTBL> EmpRepository;
-        //private readonly IRepository<InternalChatTBL> InternalChatRepository;
 
-        // المشكلة ان مكنش فيه كونستراكتور - بس كل حاجة صح
-        // هو ايه فايدته اصلا ؟ ولو عاوز اعمل واحد تانى لتيبل تانى اعمل ايه
-        // كل كونترولر ليه كونستراكتور 
-        // بص معايا ايه اللى بيحصل
-        // Object reference not set to an instance of an object.'
-        // المفروض الكس ده اول لما البروجكت يقوم ياخد انستانس من الكس اللى انت بتادى عليه
-        //         private readonly IRepository<EmployeeTBL> EmpRepository;
-        // ده مش انستانس منه ده بروبرتي عادى مش مفهوم بالنسبة له
-        // يعنى انا جوه كل كنترولر هعمل انستانس بالاسم بتاعه ؟
-
-        // نفس الكونستراكتور اللي تحت ده
-        // يعنى فى كل كنترولر هنادى من جواه على اوبجكت من الريبوزيتورى هكتب اسم الكنترولر واعمل كونستراكتور ؟
-        // بالظبط
-        // طيب ثوان كده اجرب حاجة
-        // فين الفيل بتاعة
-        // دا فه شات داتا
         public HomeController(IRepository<EmployeeTBL> EmpRepository/*, IRepository<InternalChatTBL> InternalChatRepository*/)
         {
             this.EmpRepository = EmpRepository;
