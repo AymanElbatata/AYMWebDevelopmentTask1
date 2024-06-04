@@ -23,8 +23,8 @@ namespace AYMWebDevelopment.Controllers
 
             smtpClient.Credentials = new System.Net.NetworkCredential()
             {
-                UserName = "ayman.fathy.elbatata@gmail.com",
-                Password = "bingoman4450"
+                UserName = "",
+                Password = ""
             };
 
             smtpClient.EnableSsl = true;
@@ -65,8 +65,8 @@ namespace AYMWebDevelopment.Controllers
 
             smtpClient.Credentials = new System.Net.NetworkCredential()
             {
-                UserName = "ayman.fathy.elbatata@gmail.com",
-                Password = "bingoman4450"
+                UserName = "",
+                Password = ""
             };
 
             smtpClient.EnableSsl = true;
