@@ -67,27 +67,6 @@ namespace AYMWebDevelopment.Controllers
                     return RedirectToAction("ErrorDesc");
                 }
 
-                //// GET MY NAME IN FACEBOOK
-                ////string aymwebdevelopment_ID = "1672913646201764";
-                //string aymanelbatata_ID = "1228044120882789";
-                //string accesstoken = "EAAXxgYZBfK6QBAL2ahjelZCPDJbUvvMIV7BG0n0KxnEDIzWbqW5ZA5HfNvcYXOys2QmSU5SBnVcf9HHn0BKOjJ4tzpMrcS82S1eDGzmIe0SeugWWDgilJ4ub6b1wnJM7iPSZCHG7XBWzzWTmhYZBU2pmsyBIjS4eTihv1hsIuHvqQrChZAdOUkZAsZClNdmiZCnLSe6ic8wAeGZBZBv9IGn5d2gHTYvhRjY6KhLNgmQ7SOGugZDZD";
-                //HttpClient h2 = new HttpClient();
-                //h2.BaseAddress = new Uri("https://graph.facebook.com/" + aymanelbatata_ID + "/");
-                //var res = h2.GetAsync("?fields = id, name" + "&access_token=" + accesstoken).Result;
-                //var lst = res.Content.ReadAsStringAsync().Result;
-                //var data = JsonConvert.DeserializeObject<FacebookGetAccount>(lst);
-                ////END OF GET
-
-                ////string aymanelbatata_ID = "1228044120882789";
-                //HttpClient h3 = new HttpClient();
-                ////string message = "{'recipient': ['id': '1228044120882789'],'message': [ 'text': 'mytextaym']}";
-                ////string json = JsonConvert.SerializeObject(message);
-                //h3.BaseAddress = new Uri("https://graph.facebook.com/messages/");
-                //var res3 = h3.PostAsJsonAsync("?access_token=" + accesstoken, json).Result;
-                //var lst3 = res3.Content.ReadAsStringAsync().Result;
-                //var data3 = JsonConvert.DeserializeObject<FacebookGetAccount>(lst3);
-
-                //return View();
             }
             catch (Exception ex)
             {
